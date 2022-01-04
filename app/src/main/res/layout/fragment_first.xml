@@ -15,12 +15,12 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/createproduct"
         app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintBottom_toBottomOf="@+id/products_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/products_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="8dp"
@@ -32,21 +32,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-
-        <Button
-            android:id="@+id/water"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Water"
-            android:textColor="@color/white" />
-
-        <Button
-            android:id="@+id/bread"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bread"
-            android:textColor="@color/white" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

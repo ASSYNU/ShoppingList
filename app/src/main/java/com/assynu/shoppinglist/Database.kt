@@ -1,3 +1,7 @@
+@file:Suppress("unused", "SpellCheckingInspection", "SpellCheckingInspection",
+    "SpellCheckingInspection", "SpellCheckingInspection"
+)
+
 package com.assynu.shoppinglist
 
 import android.annotation.SuppressLint
@@ -10,12 +14,11 @@ internal object Database {
     @SuppressLint("StaticFieldLeak")
     private val db = Firebase.firestore
 
-    fun addProduct(Purchased: Boolean, Name: String, By: String){
+    fun addProduct(Name: String){
 
         val product = hashMapOf(
-            "Purchased" to Purchased,
+            "Purchased" to false,
             "Name" to Name,
-            "By" to By
         )
 
         db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List")
@@ -36,19 +39,29 @@ internal object Database {
             .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
     }
 
-    fun getProducts()
-    {
-        db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents.", exception)
-            }
-    }
+//    fun getProducts() {
+//        val products = ArrayList<Product>()
+//
+//
+//        GlobalScope.launch(Dispatchers.IO) {
+//            db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List")
+//                .get()
+//                .addOnSuccessListener { result ->
+//                    for (document in result) {
+//                        val data = document.data.toList().toTypedArray()
+//                        val product = Product(document.id, data[0].second as Boolean, data[1].second as String)
+//                        products.add(product)
+////                        println("${document.id} | ${data[1]} | ${data[1]}")
+//                    }
+//                }
+//                .addOnFailureListener { exception ->
+//                    println("Error getting documents. $exception")
+//                }
+//            println(products)
+////            delay(1000L)
+////            showProducts(products)
+//        }
+//    }
 
 //    TODO -> Real time listening for database updates
 //    fun listenForUpdates()
