@@ -15,5 +15,7 @@
         <item name="actionMenuTextColor">@color/white</item>
         <item name="android:fontFamily">@font/roboto</item>
         <item name="fontFamily">@font/roboto</item>
+
+        <item name="android:navigationBarColor">?android:colorBackground</item>
     </style>
 </resources>

@@ -14,10 +14,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:text="@string/add_product_to_list"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/white"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -47,27 +47,27 @@
             android:id="@+id/product_name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:importantForAutofill="no"
             android:inputType="text"
             android:minHeight="48dp"
-            tools:ignore="LabelFor,SpeakableTextPresentCheck"
-            android:importantForAutofill="no" />
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/product_added_by"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/added_by"-->
-<!--            android:textAlignment="viewStart"-->
-<!--            android:textColor="?android:attr/colorForeground"-->
-<!--            android:textSize="19sp"-->
-<!--            android:textStyle="bold" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/product_added_by"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="@string/added_by"-->
+        <!--            android:textAlignment="viewStart"-->
+        <!--            android:textColor="?android:attr/colorForeground"-->
+        <!--            android:textSize="19sp"-->
+        <!--            android:textStyle="bold" />-->
 
-<!--        <EditText-->
-<!--            android:id="@+id/product_added_by_input"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:autofillHints="false"-->
-<!--            android:inputType="text" />-->
+        <!--        <EditText-->
+        <!--            android:id="@+id/product_added_by_input"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:autofillHints="false"-->
+        <!--            android:inputType="text" />-->
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
