@@ -54,9 +54,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (true) {
-            else -> super.onOptionsItemSelected(item)
-        }
+        super.onOptionsItemSelected(item)
+        return true
     }
 
     override fun onSupportNavigateUp(): Boolean {

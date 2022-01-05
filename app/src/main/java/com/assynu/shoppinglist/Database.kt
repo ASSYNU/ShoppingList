@@ -7,14 +7,17 @@ package com.assynu.shoppinglist
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.net.Uri
 import android.util.Log
 import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.marginTop
 import androidx.fragment.app.FragmentActivity
 import com.google.firebase.firestore.ktx.firestore
@@ -28,7 +31,6 @@ internal object Database {
     private const val ListID = "dev_4cccoGG7ELWjUMbwZ3sF" // Dev
 
     fun addProduct(Name: String){
-
         val product = hashMapOf(
             "Purchased" to false,
             "Name" to Name,
@@ -69,6 +71,12 @@ internal object Database {
                 for (document in result) {
                     val data = document.data.toList().toTypedArray()
                     val product = Product(document.id, data[0].second as Boolean, data[1].second as String)
+
+                    if (product.Purchased)
+                    {
+                        removeProduct(document.id)
+                        return@addOnSuccessListener
+                    }
 
                     val productView = CheckBox(activity)
 

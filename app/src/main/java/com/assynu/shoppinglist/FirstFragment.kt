@@ -1,9 +1,12 @@
 package com.assynu.shoppinglist
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.assynu.shoppinglist.Database.getProducts
@@ -60,9 +63,9 @@ class FirstFragment : Fragment() {
         removeCompleted()
         products_list.removeAllViews()
         fab.isClickable = false
-        delay(200L)
+        delay(500L)
         looksAwfulButWorks()
-        delay(200L)
+        delay(500L)
         fab.isClickable = true
 
     }
