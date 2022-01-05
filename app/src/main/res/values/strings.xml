@@ -18,4 +18,5 @@
     <string name="action_refreshproducts">Refresh Products</string>
     <string name="refresh_products">Refresh Products</string>
     <string name="Title">Shopping List</string>
+    <string name="enter_name">Enter Name</string>
 </resources>

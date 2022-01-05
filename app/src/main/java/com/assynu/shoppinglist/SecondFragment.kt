@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.assynu.shoppinglist.Database.addProduct
 import com.assynu.shoppinglist.databinding.FragmentSecondBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_second.*
 
@@ -17,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_second.*
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
+    lateinit var mAdView : AdView
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -51,6 +55,12 @@ class SecondFragment : Fragment() {
             }
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
+
+        MobileAds.initialize(view.context) {}
+
+        mAdView = view.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     override fun onDestroyView() {

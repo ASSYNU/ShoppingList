@@ -27,8 +27,8 @@ internal object Database {
     @SuppressLint("StaticFieldLeak")
     private val db = Firebase.firestore
 
-//    private const val ListID = "4cccoGG7ELWjUMbwZ3sF" // Main
-    private const val ListID = "dev_4cccoGG7ELWjUMbwZ3sF" // Dev
+    private const val ListID = "4cccoGG7ELWjUMbwZ3sF" // Main
+//    private const val ListID = "dev_4cccoGG7ELWjUMbwZ3sF" // Dev
 
     fun addProduct(Name: String){
         val product = hashMapOf(
@@ -79,7 +79,7 @@ internal object Database {
 
                     productView.textSize = 18f
                     productView.text = product.Name
-//                    productView.setBackgroundResource(R.drawable.productbutton)
+                    productView.setBackgroundResource(R.drawable.productbutton)
                     productView.setTextColor(R.attr.colorOnSecondary)
                     productView.buttonTintList = ColorStateList.valueOf(R.attr.colorOnSecondary)
 
@@ -94,12 +94,6 @@ internal object Database {
                         {
                             completeProduct(product)
                         }
-
-                    if (product.Purchased)
-                    {
-                        removeProduct(document.id)
-                        return@addOnSuccessListener
-                    }
 
                     products_list.addView(productView)
                 }

@@ -20,15 +20,24 @@
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/productbutton"/>
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:adSize="SMART_BANNER"
+        app:adUnitId="ca-app-pub-6358769480750303/1800245833"
+        app:layout_constraintBottom_toTopOf="@+id/addButton" />
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/addButton"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,18 +51,26 @@
             android:textAlignment="viewStart"
             android:textColor="?android:attr/colorForeground"
             android:textSize="19sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/product_name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/productinput"
+            android:hint="@string/enter_name"
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
-            android:minHeight="50dp"
+            android:minHeight="60dp"
+            android:padding="5dp"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
             android:singleLine="false"
-            tools:ignore="LabelFor,SpeakableTextPresentCheck"
-            android:background="@drawable/productinput"/>
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 
         <!--        <TextView-->
         <!--            android:id="@+id/product_added_by"-->

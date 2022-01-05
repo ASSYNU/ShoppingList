@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         FirebaseApp.initializeApp(/*context=*/this)
@@ -46,12 +45,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
-        MobileAds.initialize(this) {}
-
-        mAdView = findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
 
         supportActionBar?.hide()
     }

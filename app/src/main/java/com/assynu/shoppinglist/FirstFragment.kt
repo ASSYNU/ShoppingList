@@ -11,6 +11,9 @@ import androidx.navigation.fragment.findNavController
 import com.assynu.shoppinglist.Database.getProducts
 import com.assynu.shoppinglist.Database.removeCompleted
 import com.assynu.shoppinglist.databinding.FragmentFirstBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.fragment_first.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
@@ -21,6 +24,7 @@ import kotlinx.coroutines.runBlocking
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
+    lateinit var mAdView : AdView
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -56,6 +60,12 @@ class FirstFragment : Fragment() {
         binding.referesh.setOnClickListener {
             refreshProducts()
         }
+
+        MobileAds.initialize(view.context) {}
+
+        mAdView = view.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     private fun refreshProducts() = runBlocking {
