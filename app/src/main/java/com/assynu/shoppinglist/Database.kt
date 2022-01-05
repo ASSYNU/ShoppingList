@@ -87,7 +87,6 @@ internal object Database {
                     productView.layoutParams = RelativeLayout.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT)
-//                        50.dpToPixelsInt(context))
 
                     productView.setOnClickListener()
                         {

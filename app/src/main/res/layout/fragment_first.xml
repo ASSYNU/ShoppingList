@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="@+id/products_list"
         app:srcCompat="@drawable/icon_refresh"
         tools:ignore="SpeakableTextPresentCheck"
-        android:tint="@android:color/white"/>
+        app:tint="@android:color/white"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -33,7 +33,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/icon_add"
-        android:tint="@android:color/white"/>
+        app:tint="@android:color/white"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
