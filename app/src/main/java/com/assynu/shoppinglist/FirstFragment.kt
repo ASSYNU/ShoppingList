@@ -13,6 +13,8 @@ import com.assynu.shoppinglist.databinding.FragmentFirstBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_first.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -37,13 +39,7 @@ class FirstFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        this.context?.let {
-            getProducts(
-                activity,
-                products_list,
-                it
-            )
-        }
+        looksAwful_ButWorks()
     }
 
     override fun onStop() {
@@ -63,9 +59,14 @@ class FirstFragment : Fragment() {
         }
     }
 
-    private fun refreshProducts() {
-        products_list.removeAllViews()
+    private fun refreshProducts() = runBlocking {
         removeCompleted()
+        products_list.removeAllViews()
+        delay(500L)
+        looksAwful_ButWorks()
+    }
+
+    private fun looksAwful_ButWorks() {
         this.context?.let {
             getProducts(
                 activity,
