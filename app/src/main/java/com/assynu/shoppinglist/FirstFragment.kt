@@ -10,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.assynu.shoppinglist.Database.getProducts
 import com.assynu.shoppinglist.Database.removeCompleted
 import com.assynu.shoppinglist.databinding.FragmentFirstBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_first.*
