@@ -15,6 +15,13 @@ import com.google.android.gms.ads.MobileAds
 import com.google.firebase.FirebaseApp
 import com.google.firebase.appcheck.FirebaseAppCheck
 import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
+import android.graphics.drawable.ColorDrawable
+
+
+
+
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,6 +52,8 @@ class MainActivity : AppCompatActivity() {
         mAdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
+
+        supportActionBar?.hide()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -54,8 +63,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        super.onOptionsItemSelected(item)
-        return true
+        return when (true) {
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

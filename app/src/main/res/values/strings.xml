@@ -17,4 +17,5 @@
     <string name="action_deleteproducts">Delete Completed</string>
     <string name="action_refreshproducts">Refresh Products</string>
     <string name="refresh_products">Refresh Products</string>
+    <string name="Title">Shopping List</string>
 </resources>

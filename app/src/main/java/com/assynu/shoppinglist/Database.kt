@@ -72,22 +72,16 @@ internal object Database {
                     val data = document.data.toList().toTypedArray()
                     val product = Product(document.id, data[0].second as Boolean, data[1].second as String)
 
-                    if (product.Purchased)
-                    {
-                        removeProduct(document.id)
-                        return@addOnSuccessListener
-                    }
-
                     val productView = CheckBox(activity)
 
                     val paddingVal = 10.dpToPixelsInt(context)
 
-                    productView.textSize = 18f
-                    productView.setTextColor(Color.parseColor("#FFFFFF"))
-                    productView.text = product.Name.uppercase()
 
-                    productView.buttonTintList = ColorStateList.valueOf(Color.parseColor("#FFFFFF"))
-                    productView.setBackgroundResource(R.drawable.productbutton)
+                    productView.textSize = 18f
+                    productView.text = product.Name
+//                    productView.setBackgroundResource(R.drawable.productbutton)
+                    productView.setTextColor(R.attr.colorOnSecondary)
+                    productView.buttonTintList = ColorStateList.valueOf(R.attr.colorOnSecondary)
 
                     productView.isChecked = product.Purchased
                     productView.setPadding(0, paddingVal,0,paddingVal);
@@ -101,6 +95,11 @@ internal object Database {
                             completeProduct(product)
                         }
 
+                    if (product.Purchased)
+                    {
+                        removeProduct(document.id)
+                        return@addOnSuccessListener
+                    }
 
                     products_list.addView(productView)
                 }
