@@ -41,7 +41,6 @@ class SecondFragment : Fragment() {
 //            TODO -> Who Added
 
             val productName = product_name_input.text.toString()
-            println(productName)
             if (productName != "")
             {
                 addProduct(productName)

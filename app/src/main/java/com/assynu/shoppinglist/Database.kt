@@ -6,7 +6,14 @@ package com.assynu.shoppinglist
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.util.Log
+import android.util.TypedValue
+import android.view.ViewGroup
+import android.widget.CheckBox
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
+import androidx.fragment.app.FragmentActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -14,10 +21,10 @@ internal object Database {
     @SuppressLint("StaticFieldLeak")
     private val db = Firebase.firestore
 
-    fun addProduct(Name: String){
+    fun addProduct(Name: String, State: Boolean = false){
 
         val product = hashMapOf(
-            "Purchased" to false,
+            "Purchased" to State,
             "Name" to Name,
         )
 
@@ -31,7 +38,7 @@ internal object Database {
             }
     }
 
-    fun removeProduct(document: String)
+    private fun removeProduct(document: String)
     {
         db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List").document(document)
             .delete()
@@ -39,29 +46,69 @@ internal object Database {
             .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
     }
 
-//    fun getProducts() {
-//        val products = ArrayList<Product>()
-//
-//
-//        GlobalScope.launch(Dispatchers.IO) {
-//            db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List")
-//                .get()
-//                .addOnSuccessListener { result ->
-//                    for (document in result) {
-//                        val data = document.data.toList().toTypedArray()
-//                        val product = Product(document.id, data[0].second as Boolean, data[1].second as String)
-//                        products.add(product)
-////                        println("${document.id} | ${data[1]} | ${data[1]}")
-//                    }
-//                }
-//                .addOnFailureListener { exception ->
-//                    println("Error getting documents. $exception")
-//                }
-//            println(products)
-////            delay(1000L)
-////            showProducts(products)
-//        }
-//    }
+    fun removeCompleted()
+    {
+        db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    val data = document.data.toList().toTypedArray()
+                    val product = Product(document.id, data[0].second as Boolean, data[1].second as String)
+                    if (product.Purchased)
+                    {
+                        removeProduct(document.id)
+                    }
+                }
+            }
+    }
+
+    fun refreshProducts()
+    {
+        //TODO
+    }
+
+    fun getProducts(activity: FragmentActivity?, products_list: LinearLayout, context: Context) {
+
+        val db = Firebase.firestore
+
+        db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    val data = document.data.toList().toTypedArray()
+                    val product = Product(document.id, data[0].second as Boolean, data[1].second as String)
+
+                    val productView = CheckBox(activity)
+
+                    productView.textSize = 18f
+                    productView.text = product.Name.uppercase()
+
+                    val height = 50
+                    productView.layoutParams = RelativeLayout.LayoutParams(
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        height.dpToPixelsInt(context))
+
+                    productView.setOnClickListener()
+                        {
+                            completeProduct(product)
+                        }
+
+                    productView.isChecked = product.Purchased
+
+
+                    products_list.addView(productView)
+                }
+            }
+    }
+
+    private fun Int.dpToPixelsInt(context: Context):Int = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,this.toFloat(),context.resources.displayMetrics
+    ).toInt()
+
+    private fun completeProduct(product: Product) {
+        removeProduct(product.ID)
+        addProduct(product.Name, !product.Purchased)
+    }
 
 //    TODO -> Real time listening for database updates
 //    fun listenForUpdates()

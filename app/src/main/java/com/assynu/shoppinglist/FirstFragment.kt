@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.assynu.shoppinglist.Database.getProducts
+import com.assynu.shoppinglist.Database.removeCompleted
 import com.assynu.shoppinglist.databinding.FragmentFirstBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -33,6 +35,22 @@ class FirstFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        this.context?.let {
+            getProducts(
+                activity,
+                products_list,
+                it
+            )
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        products_list.removeAllViews()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -40,36 +58,25 @@ class FirstFragment : Fragment() {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
 
-        getProducts()
+        binding.referesh.setOnClickListener {
+            refreshProducts()
+        }
+    }
+
+    private fun refreshProducts() {
+        products_list.removeAllViews()
+        removeCompleted()
+        this.context?.let {
+            getProducts(
+                activity,
+                products_list,
+                it
+            )
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun getProducts() {
-
-        val db = Firebase.firestore
-
-        db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    val data = document.data.toList().toTypedArray()
-                    val product = Product(document.id, data[0].second as Boolean, data[1].second as String)
-                    val productTextView = Button(activity)
-
-                    println(product.Name + " | " + product.Purchased + " | " + product.ID)
-
-                    productTextView.textSize = 16f
-                    productTextView.text = product.Name
-
-                    products_list.addView(productTextView)
-                }
-            }
-            .addOnFailureListener { exception ->
-                println("Error getting documents. $exception")
-            }
     }
 }

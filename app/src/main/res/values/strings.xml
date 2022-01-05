@@ -14,4 +14,6 @@
     <string name="product_name">Product Name</string>
     <string name="added_by" tools:ignore="UnusedResources">Added By</string>
     <string name="add_product_to_list">Add product to list</string>
+    <string name="action_deleteproducts">Delete Completed</string>
+    <string name="action_refreshproducts">Refresh Products</string>
 </resources>
