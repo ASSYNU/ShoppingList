@@ -16,4 +16,5 @@
     <string name="add_product_to_list">Add product to list</string>
     <string name="action_deleteproducts">Delete Completed</string>
     <string name="action_refreshproducts">Refresh Products</string>
+    <string name="refresh_products">Refresh Products</string>
 </resources>

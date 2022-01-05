@@ -7,12 +7,15 @@ package com.assynu.shoppinglist
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.util.Log
 import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import androidx.core.view.marginTop
 import androidx.fragment.app.FragmentActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -21,34 +24,28 @@ internal object Database {
     @SuppressLint("StaticFieldLeak")
     private val db = Firebase.firestore
 
-    fun addProduct(Name: String, State: Boolean = false){
+//    private const val ListID = "4cccoGG7ELWjUMbwZ3sF" // Main
+    private const val ListID = "dev_4cccoGG7ELWjUMbwZ3sF" // Dev
+
+    fun addProduct(Name: String){
 
         val product = hashMapOf(
-            "Purchased" to State,
+            "Purchased" to false,
             "Name" to Name,
         )
-
-        db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List")
+        db.collection("Lists").document(ListID).collection("List")
             .add(product)
-            .addOnSuccessListener { documentReference ->
-                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-            }
-            .addOnFailureListener { e ->
-                Log.w(TAG, "Error adding document", e)
-            }
     }
 
     private fun removeProduct(document: String)
     {
-        db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List").document(document)
+        db.collection("Lists").document(ListID).collection("List").document(document)
             .delete()
-            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
-            .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
     }
 
     fun removeCompleted()
     {
-        db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List")
+        db.collection("Lists").document(ListID).collection("List")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
@@ -62,16 +59,11 @@ internal object Database {
             }
     }
 
-    fun refreshProducts()
-    {
-        //TODO
-    }
-
     fun getProducts(activity: FragmentActivity?, products_list: LinearLayout, context: Context) {
 
         val db = Firebase.firestore
 
-        db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List")
+        db.collection("Lists").document(ListID).collection("List")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
@@ -80,20 +72,27 @@ internal object Database {
 
                     val productView = CheckBox(activity)
 
+                    val paddingVal = 10.dpToPixelsInt(context)
+
                     productView.textSize = 18f
+                    productView.setTextColor(Color.parseColor("#FFFFFF"))
                     productView.text = product.Name.uppercase()
 
-                    val height = 50
+                    productView.buttonTintList = ColorStateList.valueOf(Color.parseColor("#FFFFFF"))
+                    productView.setBackgroundResource(R.drawable.productbutton)
+
+                    productView.isChecked = product.Purchased
+                    productView.setPadding(0, paddingVal,0,paddingVal);
+
                     productView.layoutParams = RelativeLayout.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        height.dpToPixelsInt(context))
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT)
+//                        50.dpToPixelsInt(context))
 
                     productView.setOnClickListener()
                         {
                             completeProduct(product)
                         }
-
-                    productView.isChecked = product.Purchased
 
 
                     products_list.addView(productView)
@@ -106,25 +105,7 @@ internal object Database {
     ).toInt()
 
     private fun completeProduct(product: Product) {
-        removeProduct(product.ID)
-        addProduct(product.Name, !product.Purchased)
+        product.Purchased = !product.Purchased
+        db.collection("Lists").document(ListID).collection("List").document(product.ID).set(product)
     }
-
-//    TODO -> Real time listening for database updates
-//    fun listenForUpdates()
-//    {
-//        val docRef = db.collection("Lists").document("4cccoGG7ELWjUMbwZ3sF").collection("List")
-//        docRef.addSnapshotListener { snapshot, e ->
-//            if (e != null) {
-//                Log.w(TAG, "Listen failed.", e)
-//                return@addSnapshotListener
-//            }
-//
-//            if (snapshot != null && snapshot.exists()) {
-//                Log.d(TAG, "Current data: ${snapshot.data}")
-//            } else {
-//                Log.d(TAG, "Current data: null")
-//            }
-//        }
-//    }
 }

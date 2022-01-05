@@ -13,13 +13,13 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:contentDescription="@string/refresh_products"
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/fab"
         app:layout_constraintEnd_toEndOf="@+id/products_list"
-        app:rippleColor="#000000"
-        app:srcCompat="@android:drawable/stat_notify_sync"
+        app:srcCompat="@drawable/icon_refresh"
         tools:ignore="SpeakableTextPresentCheck"
-        android:contentDescription="Refresh Products" />
+        android:tint="@android:color/white"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -27,22 +27,22 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:contentDescription="@string/createproduct"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@drawable/icon_add"
+        android:tint="@android:color/white"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-6358769480750303/1800245833"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,7 +67,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintTop_toTopOf="parent"
+        android:showDividers="middle"
+        android:divider="@drawable/empty_tall_divider">
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

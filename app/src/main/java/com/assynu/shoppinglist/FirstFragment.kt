@@ -4,16 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.assynu.shoppinglist.Database.getProducts
 import com.assynu.shoppinglist.Database.removeCompleted
 import com.assynu.shoppinglist.databinding.FragmentFirstBinding
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_first.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
@@ -41,7 +36,7 @@ class FirstFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        looksAwful_ButWorks()
+        refreshProducts()
     }
 
     override fun onStop() {
@@ -64,11 +59,15 @@ class FirstFragment : Fragment() {
     private fun refreshProducts() = runBlocking {
         removeCompleted()
         products_list.removeAllViews()
-        delay(500L)
-        looksAwful_ButWorks()
+        fab.isClickable = false
+        delay(200L)
+        looksAwfulButWorks()
+        delay(200L)
+        fab.isClickable = true
+
     }
 
-    private fun looksAwful_ButWorks() {
+    private fun looksAwfulButWorks() {
         this.context?.let {
             getProducts(
                 activity,
