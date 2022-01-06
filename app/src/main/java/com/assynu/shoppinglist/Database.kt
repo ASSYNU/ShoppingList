@@ -21,14 +21,13 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.marginTop
 import androidx.fragment.app.FragmentActivity
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.firestoreSettings
 import com.google.firebase.ktx.Firebase
 
 internal object Database {
     @SuppressLint("StaticFieldLeak")
-    private val db = Firebase.firestore
-
-    private const val ListID = "4cccoGG7ELWjUMbwZ3sF" // Main
-//    private const val ListID = "dev_4cccoGG7ELWjUMbwZ3sF" // Dev
+    val db = Firebase.firestore
+    private const val ListID = "4cccoGG7ELWjUMbwZ3sF" // "dev_4cccoGG7ELWjUMbwZ3sF" // Dev
 
     fun addProduct(Name: String){
         val product = hashMapOf(
@@ -62,9 +61,6 @@ internal object Database {
     }
 
     fun getProducts(activity: FragmentActivity?, products_list: LinearLayout, context: Context) {
-
-        val db = Firebase.firestore
-
         db.collection("Lists").document(ListID).collection("List")
             .get()
             .addOnSuccessListener { result ->
@@ -84,7 +80,7 @@ internal object Database {
                     productView.buttonTintList = ColorStateList.valueOf(R.attr.colorOnSecondary)
 
                     productView.isChecked = product.Purchased
-                    productView.setPadding(0, paddingVal,0,paddingVal);
+                    productView.setPadding(0, paddingVal,0,paddingVal)
 
                     productView.layoutParams = RelativeLayout.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,

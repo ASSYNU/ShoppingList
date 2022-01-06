@@ -32,6 +32,7 @@
         android:contentDescription="@string/createproduct"
         app:backgroundTint="?attr/colorPrimary"
         app:fabSize="normal"
+        app:borderWidth="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/icon_add"

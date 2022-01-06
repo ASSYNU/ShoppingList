@@ -40,10 +40,6 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.addButton.setOnClickListener {
-
-//            TODO -> Creation Date
-//            TODO -> Who Added
-
             val productName = product_name_input.text.toString()
             if (productName != "")
             {

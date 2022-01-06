@@ -19,4 +19,6 @@
     <string name="refresh_products">Refresh Products</string>
     <string name="Title">Shopping List</string>
     <string name="enter_name">Enter Name</string>
+    <string name="made_by_assynu">Made by Assynu</string>
+    <string name="settings_menu">Settings Menu</string>
 </resources>
