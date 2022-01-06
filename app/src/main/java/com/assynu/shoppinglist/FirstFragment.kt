@@ -1,19 +1,15 @@
 package com.assynu.shoppinglist
 
-import android.content.Intent
-import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
-import android.view.*
-import androidx.core.content.ContextCompat
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.assynu.shoppinglist.Database.getProducts
-import com.assynu.shoppinglist.Database.removeCompleted
+import com.assynu.shoppinglist.database.Manager.getProducts
+import com.assynu.shoppinglist.database.Manager.removeCompleted
+import com.assynu.shoppinglist.adds.Manager
 import com.assynu.shoppinglist.databinding.FragmentFirstBinding
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.fragment_first.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
@@ -24,7 +20,6 @@ import kotlinx.coroutines.runBlocking
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
-    lateinit var mAdView : AdView
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -61,11 +56,7 @@ class FirstFragment : Fragment() {
             refreshProducts()
         }
 
-        MobileAds.initialize(view.context) {}
-
-        mAdView = view.findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
+        Manager.addConfiguration(view)
     }
 
     private fun refreshProducts() = runBlocking {

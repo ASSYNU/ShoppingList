@@ -2,29 +2,23 @@
     "SpellCheckingInspection", "SpellCheckingInspection"
 )
 
-package com.assynu.shoppinglist
+package com.assynu.shoppinglist.database
 
 import android.annotation.SuppressLint
-import android.content.ContentValues.TAG
 import android.content.Context
-import android.content.Intent
 import android.content.res.ColorStateList
-import android.graphics.Color
-import android.net.Uri
-import android.util.Log
 import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import androidx.core.content.ContextCompat.startActivity
-import androidx.core.view.marginTop
 import androidx.fragment.app.FragmentActivity
+import com.assynu.shoppinglist.Product
+import com.assynu.shoppinglist.R
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.firestoreSettings
 import com.google.firebase.ktx.Firebase
 
-internal object Database {
+internal object Manager {
     @SuppressLint("StaticFieldLeak")
     val db = Firebase.firestore
     private const val ListID = "4cccoGG7ELWjUMbwZ3sF" // "dev_4cccoGG7ELWjUMbwZ3sF" // Dev
