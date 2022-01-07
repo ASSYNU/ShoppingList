@@ -11,18 +11,14 @@ import com.assynu.shoppinglist.database.Manager.removeCompleted
 import com.assynu.shoppinglist.adds.Manager
 import com.assynu.shoppinglist.databinding.FragmentFirstBinding
 import kotlinx.android.synthetic.main.fragment_first.*
+import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -56,6 +52,10 @@ class FirstFragment : Fragment() {
             refreshProducts()
         }
 
+        binding.settingsButton.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_settingsFragment)
+        }
+
         Manager.addConfiguration(view)
     }
 
@@ -63,9 +63,9 @@ class FirstFragment : Fragment() {
         removeCompleted()
         products_list.removeAllViews()
         fab.isClickable = false
-        delay(500L)
+        delay(100L)
         looksAwfulButWorks()
-        delay(500L)
+        delay(1000L)
         fab.isClickable = true
 
     }
