@@ -54,19 +54,16 @@
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        app:adSize="BANNER"
+        android:layout_marginEnd="16dp"
+        app:adSize="SMART_BANNER"
         app:adUnitId="ca-app-pub-6358769480750303/1800245833"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/fab"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/products_list"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 <!--    Correct: ca-app-pub-6358769480750303/1800245833-->
 <!--    Dev: ca-app-pub-3940256099942544/6300978111-->
@@ -78,14 +75,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="60dp"
+        android:divider="@drawable/empty_tall_divider"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:showDividers="middle"
-        android:divider="@drawable/empty_tall_divider">
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

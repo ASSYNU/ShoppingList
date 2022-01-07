@@ -17,6 +17,7 @@ import com.assynu.shoppinglist.Product
 import com.assynu.shoppinglist.R
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_first.*
 
 internal object Manager {
     @SuppressLint("StaticFieldLeak")
@@ -58,6 +59,7 @@ internal object Manager {
         db.collection("Lists").document(ListID).collection("List")
             .get()
             .addOnSuccessListener { result ->
+                products_list.removeAllViews()
                 for (document in result) {
                     val data = document.data.toList().toTypedArray()
                     val product = Product(document.id, data[0].second as Boolean, data[1].second as String)

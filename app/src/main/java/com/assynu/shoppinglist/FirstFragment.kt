@@ -61,12 +61,10 @@ class FirstFragment : Fragment() {
 
     private fun refreshProducts() = runBlocking {
         removeCompleted()
-        products_list.removeAllViews()
-        fab.isClickable = false
+        fab.isEnabled = false
         delay(100L)
         looksAwfulButWorks()
-        delay(1000L)
-        fab.isClickable = true
+        fab.isEnabled = true
 
     }
 
