@@ -1,11 +1,10 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <PreferenceCategory android:title="Lists">
-
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="List Settings">
         <EditTextPreference
-            android:key="List_id"
+            android:key="UserID"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:title="Your list id" />
+            android:summary="Leave it empty to generate new list. If you want to share list with your familly or frends jus type here same list ID"
+            android:title="Shopping List id" />
     </PreferenceCategory>
 </PreferenceScreen>

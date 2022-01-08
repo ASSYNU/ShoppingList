@@ -19,6 +19,8 @@
         <item name="android:windowTitleBackgroundStyle">?android:colorBackground</item>
 
         <item name="android:windowLightStatusBar">true</item>
+
+        <item name="colorAccent">?attr/colorOnSecondary</item>
     </style>
 
     <style name="Theme.ShoppingList.NoActionBar">

@@ -5,7 +5,11 @@
       <map>
         <entry key="..\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/empty_tall_divider.xml" value="0.2046875" />
+        <entry key="..\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/icon_add.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/icon_refresh.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/icon_settings.xml" value="0.2046875" />
+        <entry key="..\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/icon_shopping_cart.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/productbutton.xml" value="0.2046875" />
         <entry key="..\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/productinput.xml" value="0.2046875" />
         <entry key="..\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/refresh_animation.xml" value="0.2046875" />

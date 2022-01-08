@@ -17,14 +17,37 @@ import com.assynu.shoppinglist.Product
 import com.assynu.shoppinglist.R
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_first.*
+import java.util.*
 
+
+@SuppressLint("StaticFieldLeak")
 internal object Manager {
-    @SuppressLint("StaticFieldLeak")
-    val db = Firebase.firestore
-    private const val ListID = "4cccoGG7ELWjUMbwZ3sF" // "dev_4cccoGG7ELWjUMbwZ3sF" // Dev
+    private val db = Firebase.firestore
 
-    fun addProduct(Name: String){
+    fun getUserId(context: Context?): String? {
+        val sharedPreference = context?.getSharedPreferences("MainActivity", Context.MODE_PRIVATE)
+        val editor = sharedPreference?.edit()
+
+        var uid = sharedPreference?.getString("UserID", "")
+        if (uid == "" && editor != null) {
+            uid = UUID.randomUUID().toString()
+            editor.putString("UserID", uid)
+            editor.apply()
+        }
+        return uid
+    }
+
+    fun setUserId(context: Context?, newUID: String) {
+        val sharedPreference = context?.getSharedPreferences("MainActivity", Context.MODE_PRIVATE)
+        val editor = sharedPreference?.edit()
+
+        if (editor != null) {
+            editor.putString("UserID", newUID)
+            editor.apply()
+        }
+    }
+
+    fun addProduct(Name: String, ListID: String) {
         val product = hashMapOf(
             "Purchased" to false,
             "Name" to Name,
@@ -33,40 +56,45 @@ internal object Manager {
             .add(product)
     }
 
-    private fun removeProduct(document: String)
-    {
+    private fun removeProduct(document: String, ListID: String) {
         db.collection("Lists").document(ListID).collection("List").document(document)
             .delete()
     }
 
-    fun removeCompleted()
-    {
+    fun removeCompleted(ListID: String) {
         db.collection("Lists").document(ListID).collection("List")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     val data = document.data.toList().toTypedArray()
-                    val product = Product(document.id, data[0].second as Boolean, data[1].second as String)
-                    if (product.Purchased)
-                    {
-                        removeProduct(document.id)
+                    val product =
+                        Product(document.id, data[0].second as Boolean, data[1].second as String)
+                    if (product.Purchased) {
+                        removeProduct(document.id, ListID)
                     }
                 }
             }
     }
 
-    fun getProducts(activity: FragmentActivity?, products_list: LinearLayout, context: Context) {
+    fun getProducts(
+        activity: FragmentActivity?,
+        products_list: LinearLayout,
+        context: Context,
+        ListID: String
+    ) {
+
         db.collection("Lists").document(ListID).collection("List")
             .get()
             .addOnSuccessListener { result ->
                 products_list.removeAllViews()
                 for (document in result) {
                     val data = document.data.toList().toTypedArray()
-                    val product = Product(document.id, data[0].second as Boolean, data[1].second as String)
+                    val product =
+                        Product(document.id, data[0].second as Boolean, data[1].second as String)
 
                     val productView = CheckBox(activity)
 
-                    val paddingVal = 10.dpToPixelsInt(context)
+                    val paddingVal = 12.dpToPixelsInt(context)
 
 
                     productView.textSize = 18f
@@ -83,9 +111,9 @@ internal object Manager {
                         ViewGroup.LayoutParams.WRAP_CONTENT)
 
                     productView.setOnClickListener()
-                        {
-                            completeProduct(product)
-                        }
+                    {
+                        completeProduct(product, ListID)
+                    }
 
                     products_list.addView(productView)
                 }
@@ -96,7 +124,7 @@ internal object Manager {
         TypedValue.COMPLEX_UNIT_DIP,this.toFloat(),context.resources.displayMetrics
     ).toInt()
 
-    private fun completeProduct(product: Product) {
+    private fun completeProduct(product: Product, ListID: String) {
         product.Purchased = !product.Purchased
         db.collection("Lists").document(ListID).collection("List").document(product.ID).set(product)
     }

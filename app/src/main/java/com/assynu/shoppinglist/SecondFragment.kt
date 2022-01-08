@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.assynu.shoppinglist.database.Manager.addProduct
 import com.assynu.shoppinglist.adds.Manager
+import com.assynu.shoppinglist.database.Manager.addProduct
+import com.assynu.shoppinglist.database.Manager.getUserId
 import com.assynu.shoppinglist.databinding.FragmentSecondBinding
 import com.google.android.gms.ads.AdView
 import com.google.android.material.snackbar.Snackbar
@@ -42,7 +43,7 @@ class SecondFragment : Fragment() {
             val productName = product_name_input.text.toString()
             if (productName != "")
             {
-                addProduct(productName)
+                getUserId(context)?.let { it1 -> addProduct(productName, it1) }
             }
             else
             {
