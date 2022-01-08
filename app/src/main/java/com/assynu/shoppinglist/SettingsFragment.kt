@@ -2,11 +2,13 @@ package com.assynu.shoppinglist
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
-import com.assynu.shoppinglist.database.Manager.getUserId
-import com.assynu.shoppinglist.database.Manager.setUserId
+import com.assynu.shoppinglist.adds.Manager
+import com.assynu.shoppinglist.users.Manager.getUserId
+import com.assynu.shoppinglist.users.Manager.setUserId
 
 
 class SettingsFragment : PreferenceFragmentCompat(),

@@ -24,33 +24,11 @@ import java.util.*
 internal object Manager {
     private val db = Firebase.firestore
 
-    fun getUserId(context: Context?): String? {
-        val sharedPreference = context?.getSharedPreferences("MainActivity", Context.MODE_PRIVATE)
-        val editor = sharedPreference?.edit()
-
-        var uid = sharedPreference?.getString("UserID", "")
-        if (uid == "" && editor != null) {
-            uid = UUID.randomUUID().toString()
-            editor.putString("UserID", uid)
-            editor.apply()
-        }
-        return uid
-    }
-
-    fun setUserId(context: Context?, newUID: String) {
-        val sharedPreference = context?.getSharedPreferences("MainActivity", Context.MODE_PRIVATE)
-        val editor = sharedPreference?.edit()
-
-        if (editor != null) {
-            editor.putString("UserID", newUID)
-            editor.apply()
-        }
-    }
-
-    fun addProduct(Name: String, ListID: String) {
+    fun addProduct(Name: String, Amount: String, ListID: String) {
         val product = hashMapOf(
             "Purchased" to false,
             "Name" to Name,
+            "Amount" to Amount
         )
         db.collection("Lists").document(ListID).collection("List")
             .add(product)
@@ -68,7 +46,12 @@ internal object Manager {
                 for (document in result) {
                     val data = document.data.toList().toTypedArray()
                     val product =
-                        Product(document.id, data[0].second as Boolean, data[1].second as String)
+                        Product(
+                            document.id,
+                            data[1].second as Boolean,
+                            data[2].second as String,
+                            data[0].second as String
+                        )
                     if (product.Purchased) {
                         removeProduct(document.id, ListID)
                     }
@@ -76,6 +59,7 @@ internal object Manager {
             }
     }
 
+    @SuppressLint("SetTextI18n")
     fun getProducts(
         activity: FragmentActivity?,
         products_list: LinearLayout,
@@ -90,34 +74,52 @@ internal object Manager {
                 for (document in result) {
                     val data = document.data.toList().toTypedArray()
                     val product =
-                        Product(document.id, data[0].second as Boolean, data[1].second as String)
+                        Product(
+                            document.id,
+                            data[1].second as Boolean,
+                            data[2].second as String,
+                            data[0].second as String
+                        )
 
-                    val productView = CheckBox(activity)
-
-                    val paddingVal = 12.dpToPixelsInt(context)
-
-
-                    productView.textSize = 18f
-                    productView.text = product.Name
-                    productView.setBackgroundResource(R.drawable.productbutton)
-                    productView.setTextColor(R.attr.colorOnSecondary)
-                    productView.buttonTintList = ColorStateList.valueOf(R.attr.colorOnSecondary)
-
-                    productView.isChecked = product.Purchased
-                    productView.setPadding(0, paddingVal,0,paddingVal)
-
-                    productView.layoutParams = RelativeLayout.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT)
-
-                    productView.setOnClickListener()
-                    {
-                        completeProduct(product, ListID)
-                    }
-
-                    products_list.addView(productView)
+                    addProductToView(activity, context, product, ListID, products_list)
                 }
             }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun addProductToView(
+        activity: FragmentActivity?,
+        context: Context,
+        product: Product,
+        ListID: String,
+        products_list: LinearLayout
+    ) {
+        val productView = CheckBox(activity)
+
+        val paddingVal = 12.dpToPixelsInt(context)
+
+
+        productView.textSize = 18f
+        productView.text = "${ product.Name } x${product.Amount}"
+        productView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_refresh, 0)
+        productView.setBackgroundResource(R.drawable.productbutton)
+        productView.setTextColor(R.attr.colorOnSecondary)
+        productView.buttonTintList = ColorStateList.valueOf(R.attr.colorOnSecondary)
+
+        productView.isChecked = product.Purchased
+        productView.setPadding(5 , paddingVal, paddingVal, paddingVal)
+
+        productView.layoutParams = RelativeLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        productView.setOnClickListener()
+        {
+            completeProduct(product, ListID)
+        }
+
+        products_list.addView(productView)
     }
 
     private fun Int.dpToPixelsInt(context: Context):Int = TypedValue.applyDimension(

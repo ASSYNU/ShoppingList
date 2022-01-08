@@ -23,11 +23,11 @@
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         app:adSize="SMART_BANNER"
         app:adUnitId="ca-app-pub-6358769480750303/1800245833"
-        app:layout_constraintBottom_toTopOf="@+id/addButton" />
+        app:layout_constraintBottom_toTopOf="@+id/addButton"
+        android:layout_height="0dp"/>
 
     <LinearLayout
         android:layout_width="0dp"
@@ -61,6 +61,34 @@
             android:hint="@string/enter_name"
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
+            android:minHeight="60dp"
+            android:padding="5dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="5dp"
+            android:singleLine="false"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/product_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/amount"
+            android:layout_marginTop="15dp"
+            android:textAlignment="viewStart"
+            android:textColor="?android:attr/colorForeground"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/product_amount_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/productinput"
+            android:hint="@string/enter_amount"
+            android:importantForAutofill="no"
+            android:inputType="number"
             android:minHeight="60dp"
             android:padding="5dp"
             android:paddingStart="10dp"

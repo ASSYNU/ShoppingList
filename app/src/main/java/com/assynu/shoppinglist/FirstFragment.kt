@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.assynu.shoppinglist.adds.Manager
 import com.assynu.shoppinglist.database.Manager.getProducts
-import com.assynu.shoppinglist.database.Manager.getUserId
+import com.assynu.shoppinglist.users.Manager.getUserId
 import com.assynu.shoppinglist.database.Manager.removeCompleted
 import com.assynu.shoppinglist.databinding.FragmentFirstBinding
 import kotlinx.android.synthetic.main.fragment_first.*
@@ -42,7 +42,7 @@ class FirstFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        Manager.addConfiguration(view)
 
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
@@ -56,7 +56,7 @@ class FirstFragment : Fragment() {
             findNavController().navigate(R.id.action_FirstFragment_to_settingsFragment)
         }
 
-        Manager.addConfiguration(view)
+        super.onViewCreated(view, savedInstanceState)
     }
 
     private fun refreshProducts() = runBlocking {

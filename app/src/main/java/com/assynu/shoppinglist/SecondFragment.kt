@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.assynu.shoppinglist.adds.Manager
 import com.assynu.shoppinglist.database.Manager.addProduct
-import com.assynu.shoppinglist.database.Manager.getUserId
+import com.assynu.shoppinglist.users.Manager.getUserId
 import com.assynu.shoppinglist.databinding.FragmentSecondBinding
 import com.google.android.gms.ads.AdView
 import com.google.android.material.snackbar.Snackbar
@@ -37,22 +37,23 @@ class SecondFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        Manager.addConfiguration(view)
 
         binding.addButton.setOnClickListener {
             val productName = product_name_input.text.toString()
+            val productAmount = product_amount_input.text.toString()
             if (productName != "")
             {
-                getUserId(context)?.let { it1 -> addProduct(productName, it1) }
+                getUserId(context)?.let { it1 -> addProduct(productName, productAmount, it1) }
+                findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
             }
             else
             {
-                Snackbar.make(it, "Invalid product name", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(it, "Invalid input, try again", Snackbar.LENGTH_LONG).show()
             }
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
 
-        Manager.addConfiguration(view)
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDestroyView() {
