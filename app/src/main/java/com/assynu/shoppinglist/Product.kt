@@ -5,5 +5,5 @@ class Product
     val ID: String,
     var Purchased: Boolean,
     val Name: String,
-    val Amount: String
-    )
+    var Amount: String
+)

@@ -5,20 +5,18 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:allowBackup="true"
+        android:configChanges="orientation"
         android:fullBackupOnly="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ShoppingList"
-        android:allowBackup="true"
-        android:configChanges="orientation"
-        android:screenOrientation="portrait">
+        android:theme="@style/Theme.ShoppingList">
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.ShoppingList.NoActionBar">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +25,7 @@
         </activity>
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6358769480750303~7052572513"/>
+            android:value="ca-app-pub-6358769480750303~3890937149" />
     </application>
 
 </manifest>

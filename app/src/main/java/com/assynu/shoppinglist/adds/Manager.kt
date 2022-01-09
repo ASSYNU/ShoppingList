@@ -7,7 +7,7 @@ import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 
 object Manager {
-    lateinit var mAdView : AdView
+    lateinit var mAdView: AdView
 
     fun addConfiguration(view: View) {
         MobileAds.initialize(view.context) {}

@@ -1,4 +1,5 @@
-@file:Suppress("unused", "SpellCheckingInspection", "SpellCheckingInspection",
+@file:Suppress(
+    "unused", "SpellCheckingInspection", "SpellCheckingInspection",
     "SpellCheckingInspection", "SpellCheckingInspection"
 )
 
@@ -6,7 +7,6 @@ package com.assynu.shoppinglist.database
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.ColorStateList
 import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.CheckBox
@@ -17,7 +17,6 @@ import com.assynu.shoppinglist.Product
 import com.assynu.shoppinglist.R
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import java.util.*
 
 
 @SuppressLint("StaticFieldLeak")
@@ -98,16 +97,20 @@ internal object Manager {
 
         val paddingVal = 12.dpToPixelsInt(context)
 
+        if (product.Amount == "") {
+            product.Amount = "1"
+        }
+
 
         productView.textSize = 18f
-        productView.text = "${ product.Name } x${product.Amount}"
-        productView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_refresh, 0)
+        productView.text = "${product.Name} x${product.Amount}"
+//        productView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_refresh, 0) // TODO -> Icon implementation
         productView.setBackgroundResource(R.drawable.productbutton)
-        productView.setTextColor(R.attr.colorOnSecondary)
-        productView.buttonTintList = ColorStateList.valueOf(R.attr.colorOnSecondary)
+//        productView.setTextColor(R.attr.colorPrimary)
+//        productView.buttonTintList = ColorStateList.valueOf(R.attr.colorOnSecondary)
 
         productView.isChecked = product.Purchased
-        productView.setPadding(5 , paddingVal, paddingVal, paddingVal)
+        productView.setPadding(5, paddingVal, paddingVal, paddingVal)
 
         productView.layoutParams = RelativeLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
@@ -122,8 +125,8 @@ internal object Manager {
         products_list.addView(productView)
     }
 
-    private fun Int.dpToPixelsInt(context: Context):Int = TypedValue.applyDimension(
-        TypedValue.COMPLEX_UNIT_DIP,this.toFloat(),context.resources.displayMetrics
+    private fun Int.dpToPixelsInt(context: Context): Int = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), context.resources.displayMetrics
     ).toInt()
 
     private fun completeProduct(product: Product, ListID: String) {

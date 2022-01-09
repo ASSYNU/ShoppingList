@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.assynu.shoppinglist.adds.Manager
 import com.assynu.shoppinglist.database.Manager.getProducts
-import com.assynu.shoppinglist.users.Manager.getUserId
 import com.assynu.shoppinglist.database.Manager.removeCompleted
 import com.assynu.shoppinglist.databinding.FragmentFirstBinding
+import com.assynu.shoppinglist.users.Manager.getUserId
 import kotlinx.android.synthetic.main.fragment_first.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <style name="Theme.ShoppingList" parent="Theme.Material3.Light.NoActionBar">
@@ -29,6 +30,7 @@
         <item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
 
         <item name="android:navigationBarColor">?android:colorBackground</item>
+        <item name="android:windowLightNavigationBar" targetApi="o_mr1">true</item>
 
         <item name="android:statusBarColor">?android:colorBackground</item>
         <item name="android:windowTitleBackgroundStyle">?android:colorBackground</item>

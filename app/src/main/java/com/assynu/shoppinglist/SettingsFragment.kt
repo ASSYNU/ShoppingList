@@ -2,11 +2,9 @@ package com.assynu.shoppinglist
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
-import com.assynu.shoppinglist.adds.Manager
 import com.assynu.shoppinglist.users.Manager.getUserId
 import com.assynu.shoppinglist.users.Manager.setUserId
 
@@ -32,8 +30,7 @@ class SettingsFragment : PreferenceFragmentCompat(),
 
             setUserId(context, newUID)
 
-            if(newUID == "")
-            {
+            if (newUID == "") {
                 val editor = sharedPreferences.edit()
                 editor.putString("UserID", getUserId(context))
                 editor.apply()

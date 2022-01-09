@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.assynu.shoppinglist.SettingsFragment"
-        android:label="SettingsFragment" >
+        android:label="SettingsFragment">
         <action
             android:id="@+id/action_settingsFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
