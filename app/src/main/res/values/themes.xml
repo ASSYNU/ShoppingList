@@ -35,4 +35,11 @@
 
         <item name="android:windowLightStatusBar">true</item>
     </style>
+
+    <style name="Theme.ShoppingList.AppBarOverlay" parent="Theme.Material3.Light" >
+        <item name="colorPrimary">?android:colorBackground</item>
+    </style>
+    <style name="Theme.ShoppingList.PopupOverlay" parent="Theme.Material3.Light" >
+        <item name="colorPrimary">?android:colorBackground</item>
+    </style>
 </resources>

@@ -33,4 +33,11 @@
         <item name="android:statusBarColor">?android:colorBackground</item>
         <item name="android:windowTitleBackgroundStyle">?android:colorBackground</item>
     </style>
+
+    <style name="Theme.ShoppingList.AppBarOverlay" parent="Theme.Material3.Dark" >
+        <item name="colorPrimary">@color/md_theme_dark_background</item>
+    </style>
+    <style name="Theme.ShoppingList.PopupOverlay" parent="Theme.Material3.Dark" >
+        <item name="colorPrimary">@color/md_theme_dark_background</item>
+    </style>
 </resources>
