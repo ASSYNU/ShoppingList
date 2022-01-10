@@ -23,11 +23,10 @@ import com.google.firebase.ktx.Firebase
 internal object Manager {
     private val db = Firebase.firestore
 
-    fun addProduct(Name: String, Amount: String, ListID: String) {
+    fun addProduct(Name: String, ListID: String) {
         val product = hashMapOf(
             "Purchased" to false,
             "Name" to Name,
-            "Amount" to Amount
         )
         db.collection("Lists").document(ListID).collection("List")
             .add(product)
@@ -48,7 +47,6 @@ internal object Manager {
                         Product(
                             document.id,
                             data[1].second as Boolean,
-                            data[2].second as String,
                             data[0].second as String
                         )
                     if (product.Purchased) {
@@ -76,7 +74,6 @@ internal object Manager {
                         Product(
                             document.id,
                             data[1].second as Boolean,
-                            data[2].second as String,
                             data[0].second as String
                         )
 
@@ -97,13 +94,9 @@ internal object Manager {
 
         val paddingVal = 12.dpToPixelsInt(context)
 
-        if (product.Amount == "") {
-            product.Amount = "1"
-        }
-
 
         productView.textSize = 18f
-        productView.text = "${product.Name} x${product.Amount}"
+        productView.text = product.Name
 //        productView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_refresh, 0) // TODO -> Icon implementation
         productView.setBackgroundResource(R.drawable.productbutton)
 //        productView.setTextColor(R.attr.colorPrimary)

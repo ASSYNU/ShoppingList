@@ -4,6 +4,5 @@ class Product
     (
     val ID: String,
     var Purchased: Boolean,
-    val Name: String,
-    var Amount: String
+    val Name: String
 )

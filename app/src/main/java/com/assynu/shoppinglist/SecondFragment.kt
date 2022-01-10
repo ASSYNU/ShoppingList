@@ -41,9 +41,8 @@ class SecondFragment : Fragment() {
 
         binding.addButton.setOnClickListener {
             val productName = product_name_input.text.toString()
-            val productAmount = product_amount_input.text.toString()
             if (productName != "") {
-                getUserId(context)?.let { it1 -> addProduct(productName, productAmount, it1) }
+                getUserId(context)?.let { it1 -> addProduct(productName, it1) }
                 findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
             } else {
                 Snackbar.make(it, "Invalid input, try again", Snackbar.LENGTH_LONG).show()

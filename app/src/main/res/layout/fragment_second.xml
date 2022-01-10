@@ -72,36 +72,6 @@
             android:textColorHint="?attr/colorOnSecondary"
             tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 
-        <TextView
-            android:id="@+id/product_amount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="@string/amount"
-            android:textAlignment="viewStart"
-            android:textColor="?android:attr/colorForeground"
-            android:textSize="19sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/product_amount_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/productinput"
-            android:hint="@string/enter_amount"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:minHeight="60dp"
-            android:padding="5dp"
-            android:paddingStart="10dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="5dp"
-            android:paddingBottom="5dp"
-            android:singleLine="false"
-            android:textColor="?attr/colorOnSecondary"
-            android:textColorHint="?attr/colorOnSecondary"
-            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
-
         <!--        <TextView-->
         <!--            android:id="@+id/product_added_by"-->
         <!--            android:layout_width="match_parent"-->
