@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.assynu.shoppinglist.adds.Manager
 import com.assynu.shoppinglist.database.Manager.getProducts
-import com.assynu.shoppinglist.database.Manager.removeCompleted
 import com.assynu.shoppinglist.databinding.FragmentFirstBinding
 import com.assynu.shoppinglist.users.Manager.getUserId
 import kotlinx.android.synthetic.main.fragment_first.*
@@ -72,12 +71,10 @@ class FirstFragment : Fragment() {
     }
 
     private fun refreshProducts() = runBlocking {
-        getUserId(context)?.let { removeCompleted(it) }
         fab.isEnabled = false
-        delay(100L)
         looksAwfulButWorks()
+        delay(100L)
         fab.isEnabled = true
-
     }
 
     private fun looksAwfulButWorks() {

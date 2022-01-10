@@ -14,11 +14,15 @@ import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.AppCompatCheckBox
+import androidx.core.content.ContextCompat
+import androidx.core.view.setPadding
 import androidx.fragment.app.FragmentActivity
 import com.assynu.shoppinglist.Product
 import com.assynu.shoppinglist.R
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 
 
 @SuppressLint("StaticFieldLeak")
@@ -37,25 +41,6 @@ internal object Manager {
     private fun removeProduct(document: String, ListID: String) {
         db.collection("Lists").document(ListID).collection("List").document(document)
             .delete()
-    }
-
-    fun removeCompleted(ListID: String) {
-        db.collection("Lists").document(ListID).collection("List")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    val data = document.data.toList().toTypedArray()
-                    val product =
-                        Product(
-                            document.id,
-                            data[0].second as Boolean,
-                            data[1].second as String
-                        )
-                    if (product.Purchased) {
-                        removeProduct(document.id, ListID)
-                    }
-                }
-            }
     }
 
     @SuppressLint("SetTextI18n")
@@ -99,9 +84,10 @@ internal object Manager {
 
         productView.textSize = 18f
         productView.text = product.Name
-//        productView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_refresh, 0) // TODO -> Icon implementation
+        productView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_delete_24, 0)
         productView.isChecked = product.Purchased
-        productView.setPadding(5, paddingVal, paddingVal, paddingVal)
+        productView.setPadding(paddingVal)
+        productView.buttonDrawable = ContextCompat.getDrawable(context, R.drawable.empty_tall_divider)
 
         productView.layoutParams = RelativeLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
@@ -110,7 +96,8 @@ internal object Manager {
 
         productView.setOnClickListener()
         {
-            completeProduct(product, ListID)
+            removeProduct(product.ID, ListID)
+            products_list.removeView(productView)
         }
 
         products_list.addView(productView)
@@ -120,8 +107,4 @@ internal object Manager {
         TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), context.resources.displayMetrics
     ).toInt()
 
-    private fun completeProduct(product: Product, ListID: String) {
-        product.Purchased = !product.Purchased
-        db.collection("Lists").document(ListID).collection("List").document(product.ID).set(product)
-    }
 }
