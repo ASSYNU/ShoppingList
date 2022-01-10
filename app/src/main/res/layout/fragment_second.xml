@@ -60,7 +60,7 @@
             android:background="@drawable/productinput"
             android:hint="@string/enter_name"
             android:importantForAutofill="no"
-            android:inputType="textMultiLine"
+            android:inputType="text"
             android:minHeight="60dp"
             android:padding="5dp"
             android:paddingStart="10dp"

@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.fragment_first.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 
+
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
