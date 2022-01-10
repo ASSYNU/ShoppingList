@@ -27,13 +27,13 @@ class FirstFragment : Fragment() {
     ): View {
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
-        return binding.root
 
+        return binding.root
     }
 
     override fun onResume() {
-        super.onResume()
         refreshProducts()
+        super.onResume()
     }
 
     override fun onStop() {
@@ -42,6 +42,17 @@ class FirstFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        context?.let {
+            getUserId(context)?.let { it1 ->
+                getProducts(
+                    activity,
+                    products_list,
+                    it,
+                    it1
+                )
+            }
+        }
+
         Manager.addConfiguration(view)
 
         binding.fab.setOnClickListener {

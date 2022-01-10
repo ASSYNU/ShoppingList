@@ -7,11 +7,13 @@ package com.assynu.shoppinglist.database
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.ColorStateList
 import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.fragment.app.FragmentActivity
 import com.assynu.shoppinglist.Product
 import com.assynu.shoppinglist.R
@@ -46,8 +48,8 @@ internal object Manager {
                     val product =
                         Product(
                             document.id,
-                            data[1].second as Boolean,
-                            data[0].second as String
+                            data[0].second as Boolean,
+                            data[1].second as String
                         )
                     if (product.Purchased) {
                         removeProduct(document.id, ListID)
@@ -73,8 +75,8 @@ internal object Manager {
                     val product =
                         Product(
                             document.id,
-                            data[1].second as Boolean,
-                            data[0].second as String
+                            data[0].second as Boolean,
+                            data[1].second as String
                         )
 
                     addProductToView(activity, context, product, ListID, products_list)
@@ -98,10 +100,6 @@ internal object Manager {
         productView.textSize = 18f
         productView.text = product.Name
 //        productView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_refresh, 0) // TODO -> Icon implementation
-        productView.setBackgroundResource(R.drawable.productbutton)
-//        productView.setTextColor(R.attr.colorPrimary)
-//        productView.buttonTintList = ColorStateList.valueOf(R.attr.colorOnSecondary)
-
         productView.isChecked = product.Purchased
         productView.setPadding(5, paddingVal, paddingVal, paddingVal)
 
