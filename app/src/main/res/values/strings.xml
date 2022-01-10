@@ -36,4 +36,5 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="loading">Loading…</string>
+    <string name="settings">Settings</string>
 </resources>
