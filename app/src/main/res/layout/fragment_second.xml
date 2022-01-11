@@ -15,7 +15,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/productbutton"
         android:text="@string/add_product_to_list"
-        android:textColor="?attr/colorOnSecondary"
+        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -47,11 +47,11 @@
             android:id="@+id/product_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:text="@string/product_name"
             android:textAlignment="viewStart"
-            android:textColor="?android:attr/colorForeground"
-            android:textSize="19sp"
-            android:textStyle="bold" />
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/product_name_input"
