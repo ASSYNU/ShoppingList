@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="colorContainer" format="color" />
-    <attr name="colorOnContainer" format="color" />
+    <attr name="colorHint" format="color" />
 </resources>

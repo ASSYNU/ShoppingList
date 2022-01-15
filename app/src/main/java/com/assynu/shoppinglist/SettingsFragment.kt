@@ -20,6 +20,8 @@ class SettingsFragment : PreferenceFragmentCompat(),
 
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
         sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+
+
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {

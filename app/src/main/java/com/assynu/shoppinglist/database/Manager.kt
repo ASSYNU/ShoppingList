@@ -19,8 +19,10 @@ import androidx.core.view.setPadding
 import androidx.fragment.app.FragmentActivity
 import com.assynu.shoppinglist.Product
 import com.assynu.shoppinglist.R
+import com.assynu.shoppinglist.users.Manager
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_first.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 
@@ -107,4 +109,27 @@ internal object Manager {
         TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), context.resources.displayMetrics
     ).toInt()
 
+//    fun completeProduct(product: Product, ListID: String) {
+//        product.Purchased = !product.Purchased
+//        db.collection("Lists").document(ListID).collection("List").document(product.ID).set(product)
+//    }
+//
+//    fun removeCompleted(ListID: String) {
+//        db.collection("Lists").document(ListID).collection("List")
+//            .get()
+//            .addOnSuccessListener { result ->
+//                for (document in result) {
+//                    val data = document.data.toList().toTypedArray()
+//                    val product =
+//                        Product(
+//                            document.id,
+//                            data[1].second as Boolean,
+//                            data[0].second as String
+//                        )
+//                    if (product.Purchased) {
+//                        removeProduct(document.id, ListID)
+//                    }
+//                }
+//            }
+//    }
 }

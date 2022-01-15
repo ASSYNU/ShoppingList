@@ -16,7 +16,7 @@
     <string name="add_product_to_list">Add product to list</string>
     <string name="action_deleteproducts">Delete Completed</string>
     <string name="action_refreshproducts">Refresh Products</string>
-    <string name="refresh_products">Refresh Products</string>
+    <string name="refresh_products">Refresh</string>
     <string name="Title">Shopping List</string>
     <string name="enter_name">Enter Name</string>
     <string name="made_by_assynu">Made by Assynu</string>
@@ -37,4 +37,5 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="loading">Loading…</string>
     <string name="settings">Settings</string>
+    <string name="remove_completed">Remove Completed</string>
 </resources>

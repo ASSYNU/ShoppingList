@@ -19,13 +19,15 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-6358769480750303~3890937149" />
+        <meta-data
+            android:name="android.support.action_menu"
+            android:value="com.assynu.shoppinglist.MainActivity" />
     </application>
 
 </manifest>

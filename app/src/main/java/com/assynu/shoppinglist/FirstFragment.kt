@@ -2,6 +2,7 @@ package com.assynu.shoppinglist
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -42,6 +43,18 @@ class FirstFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        refreshProducts()
+
+        Manager.addConfiguration(view)
+
+        binding.fab.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        }
+
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    fun refreshProducts() = runBlocking {
         context?.let {
             getUserId(context)?.let { it1 ->
                 getProducts(
@@ -52,43 +65,8 @@ class FirstFragment : Fragment() {
                 )
             }
         }
-
-        Manager.addConfiguration(view)
-
-        binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
-
-        binding.referesh.setOnClickListener {
-            refreshProducts()
-        }
-
-        binding.settingsButton.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_settingsFragment)
-        }
-
-        super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun refreshProducts() = runBlocking {
-        fab.isEnabled = false
-        looksAwfulButWorks()
-        delay(100L)
-        fab.isEnabled = true
-    }
-
-    private fun looksAwfulButWorks() {
-        this.context?.let {
-            getUserId(context)?.let { it1 ->
-                getProducts(
-                    activity,
-                    products_list,
-                    it,
-                    it1
-                )
-            }
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

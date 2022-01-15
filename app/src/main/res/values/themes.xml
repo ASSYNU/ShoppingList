@@ -10,6 +10,8 @@
         <item name="android:colorBackground">@color/md_theme_light_background</item>
         <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
 
+        <item name="colorHint">#494949</item>
+
         <item name="android:navigationBarColor">?android:colorBackground</item>
 
         <item name="android:statusBarColor">?android:colorBackground</item>
