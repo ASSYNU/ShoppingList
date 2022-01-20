@@ -10,6 +10,8 @@
         <item name="android:colorBackground">@color/md_theme_light_background</item>
         <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
 
+        <item name="colorHint">#B6B6B6</item>
+
         <item name="android:navigationBarColor">?android:colorBackground</item>
         <item name="android:windowLightNavigationBar" targetApi="o_mr1">true</item>
 

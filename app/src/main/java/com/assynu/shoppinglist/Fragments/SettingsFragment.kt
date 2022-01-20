@@ -1,10 +1,11 @@
-package com.assynu.shoppinglist
+package com.assynu.shoppinglist.Fragments
 
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
+import com.assynu.shoppinglist.R
 import com.assynu.shoppinglist.users.Manager.getUserId
 import com.assynu.shoppinglist.users.Manager.setUserId
 
@@ -22,6 +23,19 @@ class SettingsFragment : PreferenceFragmentCompat(),
         sharedPreferences.registerOnSharedPreferenceChangeListener(this)
 
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val sharedPreference = preferenceScreen.sharedPreferences
+        val editor = sharedPreference?.edit()
+        if (editor != null) {
+            editor.putString("UserID", getUserId(context))
+            editor.apply()
+            println("=========================================SETTIBG G0000D====================")
+        } else {
+            println("=========================================SETTIBG FAILED====================")
+        }
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {

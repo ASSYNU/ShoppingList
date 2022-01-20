@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    tools:context=".Fragments.FirstFragment">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -21,6 +21,9 @@
         app:srcCompat="@drawable/icon_add"
         app:tint="?attr/colorOnPrimary" />
 
+    <!--    Correct: ca-app-pub-6358769480750303/9161259903-->
+    <!--    Dev: ca-app-pub-3940256099942544/6300978111-->
+
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="0dp"
@@ -31,10 +34,9 @@
         app:adUnitId="ca-app-pub-6358769480750303/9161259903"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!--    Correct: ca-app-pub-6358769480750303/9161259903-->
-    <!--    Dev: ca-app-pub-3940256099942544/6300978111-->
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
 
     <LinearLayout
         android:id="@+id/products_list"
@@ -60,4 +62,43 @@
             android:text="@string/loading"
             android:textAlignment="center" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/AddProductMenu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="?attr/colorContainer"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <EditText
+            android:id="@+id/product_name_input"
+            android:layout_width="345dp"
+            android:layout_height="match_parent"
+            android:hint="@string/enter_name"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:minHeight="60dp"
+            android:padding="5dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="5dp"
+            android:singleLine="false"
+            android:textColor="?attr/colorOnContainer"
+            android:textColorHint="?attr/colorHint"
+            android:visibility="visible"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/AddProductButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/colorContainer"
+            android:contentDescription="@string/add_product_to_list"
+            android:src="@drawable/ic_baseline_send_24" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

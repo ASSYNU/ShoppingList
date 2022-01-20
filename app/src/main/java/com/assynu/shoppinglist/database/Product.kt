@@ -1,4 +1,4 @@
-package com.assynu.shoppinglist
+package com.assynu.shoppinglist.database
 
 class Product
     (

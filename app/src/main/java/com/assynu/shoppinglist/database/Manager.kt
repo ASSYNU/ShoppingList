@@ -7,24 +7,17 @@ package com.assynu.shoppinglist.database
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.ColorStateList
+import android.graphics.Paint
 import android.util.TypedValue
 import android.view.ViewGroup
-import android.widget.CheckBox
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import androidx.appcompat.widget.AppCompatCheckBox
-import androidx.core.content.ContextCompat
+import android.widget.*
+import androidx.annotation.AttrRes
+import androidx.annotation.ColorInt
 import androidx.core.view.setPadding
 import androidx.fragment.app.FragmentActivity
-import com.assynu.shoppinglist.Product
 import com.assynu.shoppinglist.R
-import com.assynu.shoppinglist.users.Manager
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_first.*
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
 
 
 @SuppressLint("StaticFieldLeak")
@@ -49,8 +42,8 @@ internal object Manager {
     fun getProducts(
         activity: FragmentActivity?,
         products_list: LinearLayout,
-        context: Context,
-        ListID: String
+        ListID: String,
+        context: Context
     ) {
 
         db.collection("Lists").document(ListID).collection("List")
@@ -66,53 +59,88 @@ internal object Manager {
                             data[1].second as String
                         )
 
-                    addProductToView(activity, context, product, ListID, products_list)
+                    addProductToView(activity, product, ListID, products_list, context)
                 }
             }
     }
 
     @SuppressLint("SetTextI18n")
-    private fun addProductToView(
+    fun addProductToView(
         activity: FragmentActivity?,
-        context: Context,
         product: Product,
         ListID: String,
-        products_list: LinearLayout
+        products_list: LinearLayout,
+        context: Context
     ) {
-        val productView = CheckBox(activity)
+        fun Int.dpToPixelsInt(context: Context): Int = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), context.resources.displayMetrics
+        ).toInt()
+
+        fun TextView.showStrikeThrough(show: Boolean) {
+            paintFlags =
+                if (show) paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                else paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+        }
+
+        @ColorInt
+        fun Context.getColorFromAttr(
+            @AttrRes attrColor: Int,
+            typedValue: TypedValue = TypedValue(),
+            resolveRefs: Boolean = true
+        ): Int {
+            theme.resolveAttribute(attrColor, typedValue, resolveRefs)
+            return typedValue.data
+        }
+
+        val productView = LinearLayout(activity)
+        val productCheckBox = CheckBox(activity)
+        val productRemove = ImageButton(activity)
 
         val paddingVal = 12.dpToPixelsInt(context)
 
-
-        productView.textSize = 18f
-        productView.text = product.Name
-        productView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_delete_24, 0)
-        productView.isChecked = product.Purchased
         productView.setPadding(paddingVal)
-        productView.buttonDrawable = ContextCompat.getDrawable(context, R.drawable.empty_tall_divider)
 
-        productView.layoutParams = RelativeLayout.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
+
+        productCheckBox.textSize = 18f
+        productCheckBox.text = product.Name
+        productCheckBox.isChecked = product.Purchased
+        if (productCheckBox.isChecked) {
+            productCheckBox.showStrikeThrough(true)
+            productCheckBox.setTextColor(context.getColorFromAttr(R.attr.colorHint))
+        }
+        productCheckBox.layoutParams = RelativeLayout.LayoutParams(
+            320.dpToPixelsInt(context),
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
+        productCheckBox.setOnClickListener()
+        {
+            completeProduct(product, ListID)
+            if (productCheckBox.isChecked) {
+                productCheckBox.setTextColor(context.getColorFromAttr(R.attr.colorHint))
+                productCheckBox.showStrikeThrough(true)
+            } else {
+                productCheckBox.setTextColor(context.getColorFromAttr(R.attr.colorOnContainer))
+                productCheckBox.showStrikeThrough(false)
+            }
+        }
 
-        productView.setOnClickListener()
+
+        productRemove.setBackgroundResource(R.drawable.ic_baseline_delete_24)
+        productRemove.setOnClickListener()
         {
             removeProduct(product.ID, ListID)
             products_list.removeView(productView)
         }
 
+        productView.addView(productCheckBox)
+        productView.addView(productRemove)
         products_list.addView(productView)
     }
 
-    private fun Int.dpToPixelsInt(context: Context): Int = TypedValue.applyDimension(
-        TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), context.resources.displayMetrics
-    ).toInt()
-
-//    fun completeProduct(product: Product, ListID: String) {
-//        product.Purchased = !product.Purchased
-//        db.collection("Lists").document(ListID).collection("List").document(product.ID).set(product)
-//    }
+    fun completeProduct(product: Product, ListID: String) {
+        product.Purchased = !product.Purchased
+        db.collection("Lists").document(ListID).collection("List").document(product.ID).set(product)
+    }
 //
 //    fun removeCompleted(ListID: String) {
 //        db.collection("Lists").document(ListID).collection("List")

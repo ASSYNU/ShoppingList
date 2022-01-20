@@ -1,4 +1,4 @@
-package com.assynu.shoppinglist.adds
+package com.assynu.shoppinglist.ads
 
 import android.view.View
 import com.assynu.shoppinglist.R
