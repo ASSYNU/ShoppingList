@@ -7,3 +7,6 @@ Shopping List application with clean UI, easy to use. Made to keep your need's i
 # Footage
 ![Screen_1](/footage/SS_1.png?raw=true "Footage")
 ![Screen_1](/footage/SS_2.png?raw=true "Footage")
+
+# For devs
+You know kotlin and want to add/fix somethink? just do it and open pull request
