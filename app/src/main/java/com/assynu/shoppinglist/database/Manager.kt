@@ -9,10 +9,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Paint
 import android.util.TypedValue
+import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.setPadding
 import androidx.fragment.app.FragmentActivity
 import com.assynu.shoppinglist.R
@@ -92,9 +95,13 @@ internal object Manager {
             return typedValue.data
         }
 
-        val productView = LinearLayout(activity)
+        val productView = ConstraintLayout(context)
         val productCheckBox = CheckBox(activity)
         val productRemove = ImageButton(activity)
+
+        productView.id = View.generateViewId()
+        productCheckBox.id = View.generateViewId()
+        productRemove.id = View.generateViewId()
 
         val paddingVal = 12.dpToPixelsInt(context)
 
@@ -109,7 +116,7 @@ internal object Manager {
             productCheckBox.setTextColor(context.getColorFromAttr(R.attr.colorHint))
         }
         productCheckBox.layoutParams = RelativeLayout.LayoutParams(
-            320.dpToPixelsInt(context),
+            ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         productCheckBox.setOnClickListener()
@@ -124,6 +131,7 @@ internal object Manager {
             }
         }
 
+        println(productRemove.width + productCheckBox.width)
 
         productRemove.setBackgroundResource(R.drawable.ic_baseline_delete_24)
         productRemove.setOnClickListener()
@@ -134,6 +142,17 @@ internal object Manager {
 
         productView.addView(productCheckBox)
         productView.addView(productRemove)
+
+        val set = ConstraintSet()
+        set.clone(productView)
+        set.connect(
+            productRemove.id,
+            ConstraintSet.RIGHT,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.RIGHT
+        )
+        set.applyTo(productView)
+
         products_list.addView(productView)
     }
 

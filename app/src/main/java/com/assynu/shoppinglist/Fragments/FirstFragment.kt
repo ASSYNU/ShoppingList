@@ -77,6 +77,7 @@ class FirstFragment : Fragment() {
             } else {
                 Snackbar.make(it, "Invalid input, try again", Snackbar.LENGTH_LONG).show()
             }
+            product_name_input.text = null
             product_name_input.hideKeyboard()
         }
 
@@ -108,7 +109,7 @@ class FirstFragment : Fragment() {
             0F,  // fromXDelta
             0F,  // toXDelta
             0F,  // fromYDelta
-            adView.height.toFloat() + fab.height.toFloat() * 2
+            adView.height.toFloat() + fab.height.toFloat() * 6
         ) // toYDelta
         fabanimate.duration = 500
         fabanimate.fillAfter = true
@@ -154,7 +155,7 @@ class FirstFragment : Fragment() {
         val fabanimate = TranslateAnimation(
             0F,  // fromXDelta
             0F,  // toXDelta
-            adView.height.toFloat() + fab.height.toFloat() * 2,  // fromYDelta
+            adView.height.toFloat() + fab.height.toFloat() * 6,  // fromYDelta
             0F
         ) // toYDelta
         fabanimate.duration = 500

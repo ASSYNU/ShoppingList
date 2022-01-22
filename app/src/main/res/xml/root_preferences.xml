@@ -1,16 +1,49 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:divider="?attr/colorSecondary"
+    android:onClick="shareListId"
     app:icon="@drawable/ic_baseline_playlist_add_24">
-    <EditTextPreference
-        android:key="UserID"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:summary="Leave it empty to generate new list. If you want to share list with your familly or frends jus type here same list ID"
-        android:title="Shopping List id" />
-    <Preference
-        android:key="pref_version"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:summary="config"
-        android:title="Application Version" />
+    <PreferenceCategory
+        android:title="General"
+        app:iconSpaceReserved="false">
+        <EditTextPreference
+            android:key="UserID"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="Set your new, unique list id or leave it empty to generate random list id."
+            android:title="New List id"
+            app:iconSpaceReserved="false" />
+        <Preference
+            android:key="ShareUserID"
+            android:onClick="shareListId"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="If you want to share list with your familly or frends just click here and share your list id!"
+            android:title="Share List id"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+<!--    <PreferenceCategory-->
+<!--        android:title="Ads"-->
+<!--        app:iconSpaceReserved="false">-->
+<!--        <Preference-->
+<!--            android:key="pref_remove_ads"-->
+<!--            android:selectAllOnFocus="true"-->
+<!--            android:singleLine="true"-->
+<!--            android:summary="Remove Ads permanently for 2 euro!"-->
+<!--            android:title="Remove Ads"-->
+<!--            app:iconSpaceReserved="false" />-->
+<!--    </PreferenceCategory>-->
+    <PreferenceCategory
+        android:title="System"
+        app:iconSpaceReserved="false">
+        <Preference
+            android:key="pref_version"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="version"
+            android:title="Application Version"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+
 </PreferenceScreen>

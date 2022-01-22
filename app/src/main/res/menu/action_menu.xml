@@ -4,11 +4,6 @@
     <item
         android:id="@+id/settings_button"
         android:icon="@drawable/icon_settings"
+        android:menuCategory="container"
         android:title="@string/settings" />
-<!--    <item-->
-<!--        android:id="@+id/refresh_nutton"-->
-<!--        android:title="@string/refresh_products" />-->
-<!--    <item-->
-<!--        android:id="@+id/remove_completed_button"-->
-<!--        android:title="@string/remove_completed" />-->
 </menu>

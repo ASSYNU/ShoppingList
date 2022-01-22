@@ -21,9 +21,38 @@
         app:srcCompat="@drawable/icon_add"
         app:tint="?attr/colorOnPrimary" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/AddProductMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:id="@+id/products_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/productbutton"
+            android:divider="?android:attr/colorBackground"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/empty_tall_divider"
+                android:text="@string/loading"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </ScrollView>
+
     <!--    Correct: ca-app-pub-6358769480750303/9161259903-->
     <!--    Dev: ca-app-pub-3940256099942544/6300978111-->
-
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="0dp"
@@ -36,46 +65,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:visibility="visible" />
+        tools:visibility="invisible" />
 
-    <LinearLayout
-        android:id="@+id/products_list"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/productbutton"
-        android:divider="?android:attr/colorBackground"
-        android:orientation="vertical"
-        android:showDividers="middle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:button="@drawable/empty_tall_divider"
-            android:text="@string/loading"
-            android:textAlignment="center" />
-    </LinearLayout>
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/AddProductMenu"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="?attr/colorContainer"
-        android:orientation="horizontal"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <EditText
             android:id="@+id/product_name_input"
-            android:layout_width="345dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:hint="@string/enter_name"
             android:importantForAutofill="no"
             android:inputType="text"
@@ -85,20 +90,27 @@
             android:paddingTop="5dp"
             android:paddingEnd="5dp"
             android:paddingBottom="5dp"
-            android:singleLine="false"
+            android:singleLine="true"
             android:textColor="?attr/colorOnContainer"
             android:textColorHint="?attr/colorHint"
             android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/AddProductButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/AddProductButton"
-            android:layout_width="0dp"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/colorContainer"
             android:contentDescription="@string/add_product_to_list"
-            android:src="@drawable/ic_baseline_send_24" />
-    </LinearLayout>
+            android:src="@drawable/ic_baseline_send_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
