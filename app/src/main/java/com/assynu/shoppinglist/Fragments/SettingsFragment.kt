@@ -8,10 +8,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
-import com.assynu.shoppinglist.R
-import com.assynu.shoppinglist.users.Manager.setUserId
 import com.assynu.shoppinglist.BuildConfig
+import com.assynu.shoppinglist.R
 import com.assynu.shoppinglist.users.Manager.getUserId
+import com.assynu.shoppinglist.users.Manager.setUserId
 
 
 class SettingsFragment : PreferenceFragmentCompat(),
@@ -23,17 +23,16 @@ class SettingsFragment : PreferenceFragmentCompat(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+        context?.let { PreferenceManager.getDefaultSharedPreferences(it) }
+            ?.registerOnSharedPreferenceChangeListener(this)
 
         findPreference<Preference>("pref_version")?.summary = BuildConfig.VERSION_NAME
     }
 
-    override fun onPreferenceTreeClick(preference: Preference?): Boolean {
-        val key = preference!!.key
+    override fun onPreferenceTreeClick(preference: Preference): Boolean {
+        val key = preference.key
 
-        if(key == "ShareUserID")
-        {
+        if (key == "ShareUserID") {
             val uid = getUserId(context)
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
