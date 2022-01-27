@@ -1,0 +1,591 @@
+Index: app/src/main/res/layout/fragment_first.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".Fragments.FirstFragment\">\r\n\r\n    <com.google.android.material.floatingactionbutton.FloatingActionButton\r\n        android:id=\"@+id/fab\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_gravity=\"bottom|end\"\r\n        android:layout_marginEnd=\"8dp\"\r\n        android:layout_marginBottom=\"16dp\"\r\n        android:contentDescription=\"@string/createproduct\"\r\n        app:backgroundTint=\"?attr/colorPrimary\"\r\n        app:fabSize=\"normal\"\r\n        app:layout_constraintBottom_toTopOf=\"@+id/adView\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:srcCompat=\"@drawable/icon_add\"\r\n        app:tint=\"?attr/colorOnPrimary\" />\r\n\r\n    <!--    Correct: ca-app-pub-6358769480750303/9161259903-->\r\n    <!--    Dev: ca-app-pub-3940256099942544/6300978111-->\r\n\r\n    <com.google.android.gms.ads.AdView\r\n        android:id=\"@+id/adView\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        android:layout_centerHorizontal=\"true\"\r\n        app:adSize=\"SMART_BANNER\"\r\n        app:adUnitId=\"ca-app-pub-6358769480750303/9161259903\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"1.0\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        tools:visibility=\"visible\" />\r\n\r\n    <LinearLayout\r\n        android:id=\"@+id/products_list\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"0dp\"\r\n        android:layout_marginStart=\"8dp\"\r\n        android:layout_marginTop=\"8dp\"\r\n        android:layout_marginEnd=\"8dp\"\r\n        android:background=\"@drawable/productbutton\"\r\n        android:divider=\"?android:attr/colorBackground\"\r\n        android:orientation=\"vertical\"\r\n        android:showDividers=\"middle\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.0\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\">\r\n\r\n        <CheckBox\r\n            android:id=\"@+id/checkBox\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:button=\"@drawable/empty_tall_divider\"\r\n            android:text=\"@string/loading\"\r\n            android:textAlignment=\"center\" />\r\n    </LinearLayout>\r\n\r\n    <LinearLayout\r\n        android:id=\"@+id/AddProductMenu\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"60dp\"\r\n        android:background=\"?attr/colorContainer\"\r\n        android:orientation=\"horizontal\"\r\n        android:visibility=\"invisible\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\">\r\n\r\n        <EditText\r\n            android:id=\"@+id/product_name_input\"\r\n            android:layout_width=\"345dp\"\r\n            android:layout_height=\"match_parent\"\r\n            android:hint=\"@string/enter_name\"\r\n            android:importantForAutofill=\"no\"\r\n            android:inputType=\"text\"\r\n            android:minHeight=\"60dp\"\r\n            android:padding=\"5dp\"\r\n            android:paddingStart=\"10dp\"\r\n            android:paddingTop=\"5dp\"\r\n            android:paddingEnd=\"5dp\"\r\n            android:paddingBottom=\"5dp\"\r\n            android:singleLine=\"false\"\r\n            android:textColor=\"?attr/colorOnContainer\"\r\n            android:textColorHint=\"?attr/colorHint\"\r\n            android:visibility=\"visible\"\r\n            tools:ignore=\"LabelFor,SpeakableTextPresentCheck\" />\r\n\r\n        <ImageButton\r\n            android:id=\"@+id/AddProductButton\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_weight=\"1\"\r\n            android:background=\"?attr/colorContainer\"\r\n            android:contentDescription=\"@string/add_product_to_list\"\r\n            android:src=\"@drawable/ic_baseline_send_24\" />\r\n    </LinearLayout>\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_first.xml b/app/src/main/res/layout/fragment_first.xml
+--- a/app/src/main/res/layout/fragment_first.xml	(revision 24a043f6713a2ec683048c132c26851134212a70)
++++ b/app/src/main/res/layout/fragment_first.xml	(date 1642790130224)
+@@ -21,61 +21,66 @@
+         app:srcCompat="@drawable/icon_add"
+         app:tint="?attr/colorOnPrimary" />
+ 
+-    <!--    Correct: ca-app-pub-6358769480750303/9161259903-->
+-    <!--    Dev: ca-app-pub-3940256099942544/6300978111-->
+-
+-    <com.google.android.gms.ads.AdView
+-        android:id="@+id/adView"
+-        android:layout_width="0dp"
+-        android:layout_height="wrap_content"
+-        android:layout_alignParentBottom="true"
+-        android:layout_centerHorizontal="true"
+-        app:adSize="SMART_BANNER"
+-        app:adUnitId="ca-app-pub-6358769480750303/9161259903"
+-        app:layout_constraintBottom_toBottomOf="parent"
++    <ScrollView
++        android:layout_width="match_parent"
++        android:layout_height="0dp"
++        android:layout_marginStart="8dp"
++        android:layout_marginEnd="8dp"
++        app:layout_constraintBottom_toTopOf="@+id/AddProductMenu"
+         app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintHorizontal_bias="1.0"
+         app:layout_constraintStart_toStartOf="parent"
+-        tools:visibility="visible" />
++        app:layout_constraintTop_toTopOf="parent"
++        tools:ignore="SpeakableTextPresentCheck">
+ 
+-    <LinearLayout
+-        android:id="@+id/products_list"
+-        android:layout_width="match_parent"
+-        android:layout_height="0dp"
+-        android:layout_marginStart="8dp"
+-        android:layout_marginTop="8dp"
+-        android:layout_marginEnd="8dp"
+-        android:background="@drawable/productbutton"
+-        android:divider="?android:attr/colorBackground"
+-        android:orientation="vertical"
+-        android:showDividers="middle"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintHorizontal_bias="0.0"
+-        app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toTopOf="parent">
++        <LinearLayout
++            android:id="@+id/products_list"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:background="@drawable/productbutton"
++            android:divider="?android:attr/colorBackground"
++            android:orientation="vertical"
++            android:showDividers="middle">
+ 
+-        <CheckBox
+-            android:id="@+id/checkBox"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:button="@drawable/empty_tall_divider"
+-            android:text="@string/loading"
+-            android:textAlignment="center" />
+-    </LinearLayout>
++            <CheckBox
++                android:id="@+id/checkBox"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:button="@drawable/empty_tall_divider"
++                android:text="@string/loading"
++                android:textAlignment="center" />
++        </LinearLayout>
++    </ScrollView>
+ 
+-    <LinearLayout
++    <!--    Correct: ca-app-pub-6358769480750303/9161259903-->
++    <!--    Dev: ca-app-pub-3940256099942544/6300978111-->
++    <com.google.android.gms.ads.AdView
++        android:id="@+id/adView"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:layout_alignParentBottom="true"
++        android:layout_centerHorizontal="true"
++        app:adSize="SMART_BANNER"
++        app:adUnitId="ca-app-pub-6358769480750303/9161259903"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="1.0"
++        app:layout_constraintStart_toStartOf="parent"
++        tools:visibility="invisible" />
++
++    <androidx.constraintlayout.widget.ConstraintLayout
+         android:id="@+id/AddProductMenu"
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:background="?attr/colorContainer"
+-        android:orientation="horizontal"
+         android:visibility="invisible"
+         app:layout_constraintBottom_toBottomOf="parent">
+ 
+         <EditText
+             android:id="@+id/product_name_input"
+-            android:layout_width="345dp"
++            android:layout_width="0dp"
+             android:layout_height="match_parent"
++            android:layout_marginStart="8dp"
++            android:layout_marginEnd="8dp"
+             android:hint="@string/enter_name"
+             android:importantForAutofill="no"
+             android:inputType="text"
+@@ -85,20 +90,27 @@
+             android:paddingTop="5dp"
+             android:paddingEnd="5dp"
+             android:paddingBottom="5dp"
+-            android:singleLine="false"
++            android:singleLine="true"
+             android:textColor="?attr/colorOnContainer"
+             android:textColorHint="?attr/colorHint"
+             android:visibility="visible"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toStartOf="@+id/AddProductButton"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent"
+             tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+ 
+         <ImageButton
+             android:id="@+id/AddProductButton"
+-            android:layout_width="0dp"
++            android:layout_width="60dp"
+             android:layout_height="match_parent"
+             android:layout_weight="1"
+             android:background="?attr/colorContainer"
+             android:contentDescription="@string/add_product_to_list"
+-            android:src="@drawable/ic_baseline_send_24" />
+-    </LinearLayout>
++            android:src="@drawable/ic_baseline_send_24"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toEndOf="parent" />
++
++    </androidx.constraintlayout.widget.ConstraintLayout>
+ 
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/assynu/shoppinglist/Fragments/FirstFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.assynu.shoppinglist.Fragments\r\n\r\nimport android.annotation.SuppressLint\r\nimport android.content.Context\r\nimport android.os.Bundle\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.view.animation.TranslateAnimation\r\nimport android.view.inputmethod.InputMethodManager\r\nimport androidx.fragment.app.Fragment\r\nimport com.assynu.shoppinglist.ads.Manager\r\nimport com.assynu.shoppinglist.database.Manager.getProducts\r\nimport com.assynu.shoppinglist.databinding.FragmentFirstBinding\r\nimport com.assynu.shoppinglist.users.Manager.getUserId\r\nimport com.google.android.material.snackbar.Snackbar\r\nimport kotlinx.android.synthetic.main.fragment_first.*\r\nimport kotlinx.coroutines.runBlocking\r\n\r\n\r\nclass FirstFragment : Fragment() {\r\n\r\n    private var _binding: FragmentFirstBinding? = null\r\n\r\n    private val binding get() = _binding!!\r\n\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater, container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View {\r\n\r\n        _binding = FragmentFirstBinding.inflate(inflater, container, false)\r\n\r\n        return binding.root\r\n    }\r\n\r\n    override fun onResume() {\r\n        refreshProducts()\r\n        super.onResume()\r\n    }\r\n\r\n    override fun onStop() {\r\n        super.onStop()\r\n        products_list.removeAllViews()\r\n    }\r\n\r\n    @SuppressLint(\"ServiceCast\")\r\n    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {\r\n        refreshProducts()\r\n\r\n        Manager.addConfiguration(view)\r\n\r\n        binding.fab.setOnClickListener {\r\n            slideUp()\r\n        }\r\n\r\n        AddProductButton.setOnClickListener()\r\n        {\r\n            slideDown()\r\n            val productName = product_name_input.text.toString()\r\n            if (productName != \"\") {\r\n                getUserId(context)?.let { it1 ->\r\n                    com.assynu.shoppinglist.database.Manager.addProduct(\r\n                        productName,\r\n                        it1\r\n                    )\r\n                    context?.let {\r\n                        getProducts(\r\n                            activity,\r\n                            products_list,\r\n                            it1,\r\n                            it\r\n                        )\r\n                    }\r\n                }\r\n\r\n            } else {\r\n                Snackbar.make(it, \"Invalid input, try again\", Snackbar.LENGTH_LONG).show()\r\n            }\r\n            product_name_input.hideKeyboard()\r\n        }\r\n\r\n        super.onViewCreated(view, savedInstanceState)\r\n    }\r\n\r\n    fun View.hideKeyboard() {\r\n        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager\r\n        imm.hideSoftInputFromWindow(windowToken, 0)\r\n    }\r\n\r\n\r\n    private fun refreshProducts() = runBlocking {\r\n        getUserId(context)?.let { it1 ->\r\n            context?.let {\r\n                getProducts(\r\n                    activity,\r\n                    products_list,\r\n                    it1,\r\n                    it\r\n                )\r\n            }\r\n        }\r\n    }\r\n\r\n    // slide the view from below itself to the current position\r\n    private fun slideUp() {\r\n        val fabanimate = TranslateAnimation(\r\n            0F,  // fromXDelta\r\n            0F,  // toXDelta\r\n            0F,  // fromYDelta\r\n            adView.height.toFloat() + fab.height.toFloat() * 2\r\n        ) // toYDelta\r\n        fabanimate.duration = 500\r\n        fabanimate.fillAfter = true\r\n\r\n        val adViewanimate = TranslateAnimation(\r\n            0F,  // fromXDelta\r\n            0F,  // toXDelta\r\n            0F,  // fromYDelta\r\n            adView.height.toFloat()\r\n        ) // toYDelta\r\n        adViewanimate.duration = 500\r\n        adViewanimate.fillAfter = true\r\n\r\n        AddProductMenu.visibility = View.VISIBLE\r\n        val AddProductMenuanimate = TranslateAnimation(\r\n            0F,  // fromXDelta\r\n            0F,  // toXDelta\r\n            AddProductMenu.height.toFloat(),  // fromYDelta\r\n            0F\r\n        ) // toYDelta\r\n        AddProductMenuanimate.duration = 500\r\n        AddProductMenuanimate.fillAfter = true\r\n\r\n        adView.startAnimation(adViewanimate)\r\n        fab.startAnimation(fabanimate)\r\n        AddProductMenu.startAnimation(AddProductMenuanimate)\r\n        fab.visibility = View.INVISIBLE\r\n        adView.visibility = View.INVISIBLE\r\n    }\r\n\r\n    // slide the view from its current position to below itself\r\n    fun slideDown() {\r\n        val AddProductMenuanimate = TranslateAnimation(\r\n            0F,  // fromXDelta\r\n            0F,  // toXDelta\r\n            0F,  // fromYDelta\r\n            AddProductMenu.height.toFloat()\r\n        ) // toYDelta\r\n        AddProductMenuanimate.duration = 500\r\n        AddProductMenuanimate.fillAfter = true\r\n\r\n        fab.visibility = View.VISIBLE\r\n        val fabanimate = TranslateAnimation(\r\n            0F,  // fromXDelta\r\n            0F,  // toXDelta\r\n            adView.height.toFloat() + fab.height.toFloat() * 2,  // fromYDelta\r\n            0F\r\n        ) // toYDelta\r\n        fabanimate.duration = 500\r\n        fabanimate.fillAfter = true\r\n\r\n        adView.visibility = View.VISIBLE\r\n        val adViewanimate = TranslateAnimation(\r\n            0F,  // fromXDelta\r\n            0F,  // toXDelta\r\n            AddProductMenu.height.toFloat(),  // fromYDelta\r\n            0F\r\n        ) // toYDelta\r\n        adViewanimate.duration = 500\r\n        adViewanimate.fillAfter = true\r\n\r\n        adView.startAnimation(adViewanimate)\r\n        fab.startAnimation(fabanimate)\r\n        AddProductMenu.startAnimation(AddProductMenuanimate)\r\n        AddProductMenu.visibility = View.INVISIBLE\r\n    }\r\n\r\n    override fun onDestroyView() {\r\n        super.onDestroyView()\r\n        _binding = null\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/assynu/shoppinglist/Fragments/FirstFragment.kt b/app/src/main/java/com/assynu/shoppinglist/Fragments/FirstFragment.kt
+--- a/app/src/main/java/com/assynu/shoppinglist/Fragments/FirstFragment.kt	(revision 24a043f6713a2ec683048c132c26851134212a70)
++++ b/app/src/main/java/com/assynu/shoppinglist/Fragments/FirstFragment.kt	(date 1642790103694)
+@@ -77,6 +77,7 @@
+             } else {
+                 Snackbar.make(it, "Invalid input, try again", Snackbar.LENGTH_LONG).show()
+             }
++            product_name_input.text = null
+             product_name_input.hideKeyboard()
+         }
+ 
+@@ -108,7 +109,7 @@
+             0F,  // fromXDelta
+             0F,  // toXDelta
+             0F,  // fromYDelta
+-            adView.height.toFloat() + fab.height.toFloat() * 2
++            adView.height.toFloat() + fab.height.toFloat() * 6
+         ) // toYDelta
+         fabanimate.duration = 500
+         fabanimate.fillAfter = true
+@@ -154,7 +155,7 @@
+         val fabanimate = TranslateAnimation(
+             0F,  // fromXDelta
+             0F,  // toXDelta
+-            adView.height.toFloat() + fab.height.toFloat() * 2,  // fromYDelta
++            adView.height.toFloat() + fab.height.toFloat() * 6,  // fromYDelta
+             0F
+         ) // toYDelta
+         fabanimate.duration = 500
+Index: app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<adaptive-icon xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <background android:drawable=\"@color/ic_launcher_background\" />\r\n    <foreground android:drawable=\"@drawable/ic_launcher_foreground\" />\r\n</adaptive-icon>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml b/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+--- a/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	(revision 24a043f6713a2ec683048c132c26851134212a70)
++++ b/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	(date 1642792478340)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@color/ic_launcher_background" />
+-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <background android:drawable="@color/ic_launcher_background"/>
++    <foreground android:drawable="@drawable/ic_launcher_foreground"/>
+ </adaptive-icon>
+\ No newline at end of file
+Index: app/src/main/res/xml/root_preferences.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><PreferenceScreen xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    app:icon=\"@drawable/ic_baseline_playlist_add_24\">\r\n    <EditTextPreference\r\n        android:key=\"UserID\"\r\n        android:selectAllOnFocus=\"true\"\r\n        android:singleLine=\"true\"\r\n        android:summary=\"Leave it empty to generate new list. If you want to share list with your familly or frends jus type here same list ID\"\r\n        android:title=\"Shopping List id\" />\r\n    <Preference\r\n        android:key=\"pref_version\"\r\n        android:selectAllOnFocus=\"true\"\r\n        android:singleLine=\"true\"\r\n        android:summary=\"config\"\r\n        android:title=\"Application Version\" />\r\n</PreferenceScreen>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/xml/root_preferences.xml b/app/src/main/res/xml/root_preferences.xml
+--- a/app/src/main/res/xml/root_preferences.xml	(revision 24a043f6713a2ec683048c132c26851134212a70)
++++ b/app/src/main/res/xml/root_preferences.xml	(date 1642789479810)
+@@ -1,16 +1,50 @@
+ <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:divider="?attr/colorSecondary"
++    android:onClick="shareListId"
+     app:icon="@drawable/ic_baseline_playlist_add_24">
+-    <EditTextPreference
+-        android:key="UserID"
+-        android:selectAllOnFocus="true"
+-        android:singleLine="true"
+-        android:summary="Leave it empty to generate new list. If you want to share list with your familly or frends jus type here same list ID"
+-        android:title="Shopping List id" />
+-    <Preference
+-        android:key="pref_version"
+-        android:selectAllOnFocus="true"
+-        android:singleLine="true"
+-        android:summary="config"
+-        android:title="Application Version" />
++    <PreferenceCategory
++        android:title="General"
++        app:iconSpaceReserved="false">
++        <EditTextPreference
++            android:key="UserID"
++            android:selectAllOnFocus="true"
++            android:singleLine="true"
++            android:summary="Set your new, unique list id or leave it empty to generate random list id."
++            android:title="New List id"
++            app:iconSpaceReserved="false" />
++        <Preference
++            android:key="ShareUserID"
++            android:onClick="shareListId"
++            android:selectAllOnFocus="true"
++            android:singleLine="true"
++            android:summary="If you want to share list with your familly or frends just click here and share your list id!"
++            android:title="Share List id"
++            app:iconSpaceReserved="false" />
++    </PreferenceCategory>
++<!--    <PreferenceCategory-->
++<!--        android:title="Ads"-->
++<!--        app:iconSpaceReserved="false">-->
++<!--        <Preference-->
++<!--            android:key="pref_remove_ads"-->
++<!--            android:selectAllOnFocus="true"-->
++<!--            android:singleLine="true"-->
++<!--            android:summary="Remove Ads permanently for 2 euro!"-->
++<!--            android:title="Remove Ads"-->
++<!--            app:iconSpaceReserved="false" />-->
++<!--    </PreferenceCategory>-->
++    <PreferenceCategory
++        android:title="System"
++        app:iconSpaceReserved="false">
++        <!-- TODO -> actualize every update -->
++        <Preference
++            android:key="pref_version"
++            android:selectAllOnFocus="true"
++            android:singleLine="true"
++            android:summary="version"
++            android:title="Application Version"
++            app:iconSpaceReserved="false" />
++    </PreferenceCategory>
++
++
+ </PreferenceScreen>
+\ No newline at end of file
+Index: app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<adaptive-icon xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <background android:drawable=\"@color/ic_launcher_background\" />\r\n    <foreground android:drawable=\"@drawable/ic_launcher_foreground\" />\r\n</adaptive-icon>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml b/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+--- a/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	(revision 24a043f6713a2ec683048c132c26851134212a70)
++++ b/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	(date 1642792478449)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@color/ic_launcher_background" />
+-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <background android:drawable="@color/ic_launcher_background"/>
++    <foreground android:drawable="@drawable/ic_launcher_foreground"/>
+ </adaptive-icon>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Users/Assynu/Desktop/Software Development/Mobile/ShoppingList/app/src/main/res/layout/activity_main.xml\" value=\"0.2798913043478261\" />\r\n        <entry key=\"..\\:/Users/Assynu/Desktop/Software Development/Mobile/ShoppingList/app/src/main/res/xml/root_preferences.xml\" value=\"0.2758152173913043\" />\r\n        <entry key=\"..\\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/ic_baseline_delete_24.xml\" value=\"0.3854166666666667\" />\r\n        <entry key=\"..\\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/productbutton.xml\" value=\"0.3375\" />\r\n        <entry key=\"..\\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/productinput.xml\" value=\"0.1765\" />\r\n        <entry key=\"..\\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/layout/activity_main.xml\" value=\"0.16770833333333332\" />\r\n        <entry key=\"..\\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/layout/content_main.xml\" value=\"0.2046875\" />\r\n        <entry key=\"..\\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/layout/fragment_first.xml\" value=\"0.2980072463768116\" />\r\n        <entry key=\"..\\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/layout/fragment_second.xml\" value=\"0.33\" />\r\n        <entry key=\"..\\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/menu/menu_main.xml\" value=\"0.2046875\" />\r\n        <entry key=\"..\\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/menu/newproduct_menu.xml\" value=\"0.3692708333333333\" />\r\n        <entry key=\"..\\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/menu/newproduct_popout.xml\" value=\"0.3692708333333333\" />\r\n        <entry key=\"..\\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml\" value=\"0.2285\" />\r\n        <entry key=\"..\\:/Users/Assynu/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/xml/root_preferences.xml\" value=\"0.29438405797101447\" />\r\n        <entry key=\"..\\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/empty_tall_divider.xml\" value=\"0.37864583333333335\" />\r\n        <entry key=\"..\\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/ic_baseline_delete_24.xml\" value=\"0.37864583333333335\" />\r\n        <entry key=\"..\\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/ic_baseline_playlist_add_24.xml\" value=\"0.37864583333333335\" />\r\n        <entry key=\"..\\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/ic_baseline_send_24.xml\" value=\"0.21875\" />\r\n        <entry key=\"..\\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/icon_add.xml\" value=\"0.37864583333333335\" />\r\n        <entry key=\"..\\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/productbutton.xml\" value=\"0.37864583333333335\" />\r\n        <entry key=\"..\\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/drawable/productinput.xml\" value=\"0.21875\" />\r\n        <entry key=\"..\\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/font/product_view.xml\" value=\"0.3927083333333333\" />\r\n        <entry key=\"..\\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/layout/activity_main.xml\" value=\"0.20260416666666667\" />\r\n        <entry key=\"..\\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/layout/fragment_first.xml\" value=\"0.20260416666666667\" />\r\n        <entry key=\"..\\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/layout/fragment_second.xml\" value=\"0.3625\" />\r\n        <entry key=\"..\\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/menu/action_menu.xml\" value=\"0.3625\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"11\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 24a043f6713a2ec683048c132c26851134212a70)
++++ b/.idea/misc.xml	(date 1642792482142)
+@@ -29,6 +29,9 @@
+         <entry key="..\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/layout/fragment_first.xml" value="0.20260416666666667" />
+         <entry key="..\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/layout/fragment_second.xml" value="0.3625" />
+         <entry key="..\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/menu/action_menu.xml" value="0.3625" />
++        <entry key="..\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.33" />
++        <entry key="..\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.318859649122807" />
++        <entry key="..\:/Users/dawid/Documents/Software Development/Mobile/ShoppingList/app/src/main/res/xml/root_preferences.xml" value="0.30526315789473685" />
+       </map>
+     </option>
+   </component>
+Index: app/src/main/res/menu/action_menu.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<menu xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n\r\n    <item\r\n        android:id=\"@+id/settings_button\"\r\n        android:icon=\"@drawable/icon_settings\"\r\n        android:title=\"@string/settings\" />\r\n<!--    <item-->\r\n<!--        android:id=\"@+id/refresh_nutton\"-->\r\n<!--        android:title=\"@string/refresh_products\" />-->\r\n<!--    <item-->\r\n<!--        android:id=\"@+id/remove_completed_button\"-->\r\n<!--        android:title=\"@string/remove_completed\" />-->\r\n</menu>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/menu/action_menu.xml b/app/src/main/res/menu/action_menu.xml
+--- a/app/src/main/res/menu/action_menu.xml	(revision 24a043f6713a2ec683048c132c26851134212a70)
++++ b/app/src/main/res/menu/action_menu.xml	(date 1642789735945)
+@@ -4,11 +4,6 @@
+     <item
+         android:id="@+id/settings_button"
+         android:icon="@drawable/icon_settings"
++        android:menuCategory="container"
+         android:title="@string/settings" />
+-<!--    <item-->
+-<!--        android:id="@+id/refresh_nutton"-->
+-<!--        android:title="@string/refresh_products" />-->
+-<!--    <item-->
+-<!--        android:id="@+id/remove_completed_button"-->
+-<!--        android:title="@string/remove_completed" />-->
+ </menu>
+\ No newline at end of file
+Index: app/src/main/java/com/assynu/shoppinglist/Fragments/SettingsFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.assynu.shoppinglist.Fragments\r\n\r\nimport android.content.SharedPreferences\r\nimport android.os.Bundle\r\nimport androidx.navigation.fragment.findNavController\r\nimport androidx.preference.PreferenceFragmentCompat\r\nimport androidx.preference.PreferenceManager\r\nimport com.assynu.shoppinglist.R\r\nimport com.assynu.shoppinglist.users.Manager.getUserId\r\nimport com.assynu.shoppinglist.users.Manager.setUserId\r\n\r\n\r\nclass SettingsFragment : PreferenceFragmentCompat(),\r\n    SharedPreferences.OnSharedPreferenceChangeListener {\r\n    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {\r\n        setPreferencesFromResource(R.xml.root_preferences, rootKey)\r\n    }\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n\r\n        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)\r\n        sharedPreferences.registerOnSharedPreferenceChangeListener(this)\r\n\r\n\r\n    }\r\n\r\n    override fun onResume() {\r\n        super.onResume()\r\n        val sharedPreference = preferenceScreen.sharedPreferences\r\n        val editor = sharedPreference?.edit()\r\n        if (editor != null) {\r\n            editor.putString(\"UserID\", getUserId(context))\r\n            editor.apply()\r\n            println(\"=========================================SETTIBG G0000D====================\")\r\n        } else {\r\n            println(\"=========================================SETTIBG FAILED====================\")\r\n        }\r\n    }\r\n\r\n    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {\r\n        if (key == \"UserID\") {\r\n            var newUID = sharedPreferences.getString(\"UserID\", \"\")\r\n\r\n            if (newUID == null || newUID == \"\") newUID = \"\"\r\n\r\n            setUserId(context, newUID)\r\n\r\n            if (newUID == \"\") {\r\n                val editor = sharedPreferences.edit()\r\n                editor.putString(\"UserID\", getUserId(context))\r\n                editor.apply()\r\n\r\n                findNavController().navigate(R.id.action_settingsFragment_to_FirstFragment)\r\n            }\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/assynu/shoppinglist/Fragments/SettingsFragment.kt b/app/src/main/java/com/assynu/shoppinglist/Fragments/SettingsFragment.kt
+--- a/app/src/main/java/com/assynu/shoppinglist/Fragments/SettingsFragment.kt	(revision 24a043f6713a2ec683048c132c26851134212a70)
++++ b/app/src/main/java/com/assynu/shoppinglist/Fragments/SettingsFragment.kt	(date 1642789057870)
+@@ -1,13 +1,15 @@
+ package com.assynu.shoppinglist.Fragments
+ 
++import android.content.Intent
+ import android.content.SharedPreferences
+ import android.os.Bundle
+-import androidx.navigation.fragment.findNavController
++import android.util.Log
++import androidx.preference.Preference
+ import androidx.preference.PreferenceFragmentCompat
+-import androidx.preference.PreferenceManager
+ import com.assynu.shoppinglist.R
+-import com.assynu.shoppinglist.users.Manager.getUserId
+ import com.assynu.shoppinglist.users.Manager.setUserId
++import com.assynu.shoppinglist.BuildConfig
++import com.assynu.shoppinglist.users.Manager.getUserId
+ 
+ 
+ class SettingsFragment : PreferenceFragmentCompat(),
+@@ -19,23 +21,33 @@
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+ 
+-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+-        sharedPreferences.registerOnSharedPreferenceChangeListener(this)
++        findPreference<Preference>("pref_version")?.summary = BuildConfig.VERSION_NAME
+ 
++//        findPreference<Preference>("ShareUserID")?.onPreferenceChangeListener = shareListId()
+ 
+     }
+ 
+-    override fun onResume() {
+-        super.onResume()
+-        val sharedPreference = preferenceScreen.sharedPreferences
+-        val editor = sharedPreference?.edit()
+-        if (editor != null) {
+-            editor.putString("UserID", getUserId(context))
+-            editor.apply()
+-            println("=========================================SETTIBG G0000D====================")
+-        } else {
+-            println("=========================================SETTIBG FAILED====================")
++    override fun onPreferenceTreeClick(preference: Preference?): Boolean {
++        val key = preference!!.key
++
++        if(key == "ShareUserID")
++        {
++            val uid = getUserId(context)
++            val sendIntent: Intent = Intent().apply {
++                action = Intent.ACTION_SEND
++                putExtra(Intent.EXTRA_TEXT, "Someone shared you their shopping list id: " + uid)
++                type = "text/plain"
++            }
++
++            val shareIntent = Intent.createChooser(sendIntent, null)
++            startActivity(shareIntent)
+         }
++        if(key == "pref_remove_ads")
++        {
++            Log.v("Shopping List", "Removed Ads")
++        }
++
++        return super.onPreferenceTreeClick(preference)
+     }
+ 
+     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
+@@ -45,14 +57,6 @@
+             if (newUID == null || newUID == "") newUID = ""
+ 
+             setUserId(context, newUID)
+-
+-            if (newUID == "") {
+-                val editor = sharedPreferences.edit()
+-                editor.putString("UserID", getUserId(context))
+-                editor.apply()
+-
+-                findNavController().navigate(R.id.action_settingsFragment_to_FirstFragment)
+-            }
+         }
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_launcher_foreground.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><vector xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:width=\"108dp\"\r\n    android:height=\"108dp\"\r\n    android:tint=\"#FFFFFF\"\r\n    android:viewportWidth=\"108\"\r\n    android:viewportHeight=\"108\">\r\n    <group\r\n        android:scaleX=\"2.292211\"\r\n        android:scaleY=\"2.292211\"\r\n        android:translateX=\"28.785679\"\r\n        android:translateY=\"26.493467\">\r\n        <path\r\n            android:fillAlpha=\"0.3\"\r\n            android:fillColor=\"@android:color/white\"\r\n            android:pathData=\"M15.55,11l2.76,-5H6.16l2.37,5z\"\r\n            android:strokeAlpha=\"0.3\" />\r\n        <path\r\n            android:fillColor=\"@android:color/white\"\r\n            android:pathData=\"M15.55,13c0.75,0 1.41,-0.41 1.75,-1.03l3.58,-6.49c0.37,-0.66 -0.11,-1.48 -0.87,-1.48L5.21,4l-0.94,-2L1,2v2h2l3.6,7.59 -1.35,2.44C4.52,15.37 5.48,17 7,17h12v-2L7,15l1.1,-2h7.45zM6.16,6h12.15l-2.76,5L8.53,11L6.16,6zM7,18c-1.1,0 -1.99,0.9 -1.99,2S5.9,22 7,22s2,-0.9 2,-2 -0.9,-2 -2,-2zM17,18c-1.1,0 -1.99,0.9 -1.99,2s0.89,2 1.99,2 2,-0.9 2,-2 -0.9,-2 -2,-2z\" />\r\n    </group>\r\n</vector>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_launcher_foreground.xml b/app/src/main/res/drawable/ic_launcher_foreground.xml
+--- a/app/src/main/res/drawable/ic_launcher_foreground.xml	(revision 24a043f6713a2ec683048c132c26851134212a70)
++++ b/app/src/main/res/drawable/ic_launcher_foreground.xml	(date 1642792478418)
+@@ -1,21 +1,20 @@
+ <vector xmlns:android="http://schemas.android.com/apk/res/android"
+     android:width="108dp"
+     android:height="108dp"
+-    android:tint="#FFFFFF"
+     android:viewportWidth="108"
+-    android:viewportHeight="108">
+-    <group
+-        android:scaleX="2.292211"
+-        android:scaleY="2.292211"
+-        android:translateX="28.785679"
+-        android:translateY="26.493467">
+-        <path
+-            android:fillAlpha="0.3"
+-            android:fillColor="@android:color/white"
+-            android:pathData="M15.55,11l2.76,-5H6.16l2.37,5z"
+-            android:strokeAlpha="0.3" />
+-        <path
+-            android:fillColor="@android:color/white"
+-            android:pathData="M15.55,13c0.75,0 1.41,-0.41 1.75,-1.03l3.58,-6.49c0.37,-0.66 -0.11,-1.48 -0.87,-1.48L5.21,4l-0.94,-2L1,2v2h2l3.6,7.59 -1.35,2.44C4.52,15.37 5.48,17 7,17h12v-2L7,15l1.1,-2h7.45zM6.16,6h12.15l-2.76,5L8.53,11L6.16,6zM7,18c-1.1,0 -1.99,0.9 -1.99,2S5.9,22 7,22s2,-0.9 2,-2 -0.9,-2 -2,-2zM17,18c-1.1,0 -1.99,0.9 -1.99,2s0.89,2 1.99,2 2,-0.9 2,-2 -0.9,-2 -2,-2z" />
+-    </group>
++    android:viewportHeight="108"
++    android:tint="#FFFFFF">
++  <group android:scaleX="1.9314"
++      android:scaleY="1.9314"
++      android:translateX="30.8232"
++      android:translateY="30.8232">
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M15.55,11l2.76,-5H6.16l2.37,5z"
++        android:strokeAlpha="0.3"
++        android:fillAlpha="0.3"/>
++    <path
++        android:fillColor="@android:color/white"
++        android:pathData="M15.55,13c0.75,0 1.41,-0.41 1.75,-1.03l3.58,-6.49c0.37,-0.66 -0.11,-1.48 -0.87,-1.48L5.21,4l-0.94,-2L1,2v2h2l3.6,7.59 -1.35,2.44C4.52,15.37 5.48,17 7,17h12v-2L7,15l1.1,-2h7.45zM6.16,6h12.15l-2.76,5L8.53,11L6.16,6zM7,18c-1.1,0 -1.99,0.9 -1.99,2S5.9,22 7,22s2,-0.9 2,-2 -0.9,-2 -2,-2zM17,18c-1.1,0 -1.99,0.9 -1.99,2s0.89,2 1.99,2 2,-0.9 2,-2 -0.9,-2 -2,-2z"/>
++  </group>
+ </vector>
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n    id 'kotlin-android'\r\n    id 'kotlin-android-extensions'\r\n}\r\n\r\nandroid {\r\n    compileSdk 31\r\n\r\n    defaultConfig {\r\n        applicationId \"com.assynu.shoppinglist\"\r\n        minSdk 23\r\n        targetSdk 31\r\n        versionCode 1\r\n        versionName '1.0.2.9.5'\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n        minSdkVersion 23\r\n        //noinspection OldTargetApi\r\n        targetSdkVersion 31\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = '1.8'\r\n    }\r\n    buildFeatures {\r\n        viewBinding true\r\n    }\r\n    buildToolsVersion '31.0.0'\r\n    ndkVersion '21.4.7075529'\r\n    compileSdkVersion 31\r\n}\r\napply plugin: 'com.android.application'\r\napply plugin: 'com.google.gms.google-services'\r\napply plugin: 'com.google.firebase.crashlytics'\r\napply plugin: 'com.google.firebase.firebase-perf'\r\n\r\ndependencies {\r\n\r\n    implementation 'androidx.core:core-ktx:1.7.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'\r\n    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'\r\n    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'\r\n    implementation 'androidx.preference:preference-ktx:1.1.1'\r\n    implementation 'androidx.compose.material3:material3:1.0.0-alpha03'\r\n    implementation 'androidx.appcompat:appcompat:1.4.1'\r\n    implementation 'com.google.android.material:material:1.6.0-alpha01'\r\n    implementation 'com.google.android.gms:play-services-safetynet:18.0.1'\r\n    //noinspection GradleDynamicVersion\r\n    testImplementation 'junit:junit:4.+'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.3'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'\r\n    implementation platform('com.google.firebase:firebase-bom:29.0.3')\r\n    implementation 'com.google.firebase:firebase-analytics-ktx'\r\n    implementation 'com.google.firebase:firebase-firestore-ktx'\r\n    implementation 'com.google.firebase:firebase-appcheck-safetynet:16.0.0-beta04'\r\n    implementation 'com.google.firebase:firebase-crashlytics-ktx'\r\n    implementation 'com.google.firebase:firebase-analytics-ktx'\r\n    implementation 'com.google.firebase:firebase-perf-ktx'\r\n    implementation 'com.google.android.gms:play-services-ads:20.5.0'\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision 24a043f6713a2ec683048c132c26851134212a70)
++++ b/app/build.gradle	(date 1642790268403)
+@@ -12,7 +12,7 @@
+         minSdk 23
+         targetSdk 31
+         versionCode 1
+-        versionName '1.0.2.9.5'
++        versionName '1.0.3'
+ 
+         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+         minSdkVersion 23
+Index: app/src/main/res/values/ic_launcher_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <color name=\"ic_launcher_background\">#1971E5</color>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/ic_launcher_background.xml b/app/src/main/res/values/ic_launcher_background.xml
+--- a/app/src/main/res/values/ic_launcher_background.xml	(revision 24a043f6713a2ec683048c132c26851134212a70)
++++ b/app/src/main/res/values/ic_launcher_background.xml	(date 1642792478371)
+@@ -1,4 +1,4 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <resources>
+-    <color name="ic_launcher_background">#1971E5</color>
++    <color name="ic_launcher_background">#1970E3</color>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/java/com/assynu/shoppinglist/database/Manager.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@file:Suppress(\r\n    \"unused\", \"SpellCheckingInspection\", \"SpellCheckingInspection\",\r\n    \"SpellCheckingInspection\", \"SpellCheckingInspection\"\r\n)\r\n\r\npackage com.assynu.shoppinglist.database\r\n\r\nimport android.annotation.SuppressLint\r\nimport android.content.Context\r\nimport android.graphics.Paint\r\nimport android.util.TypedValue\r\nimport android.view.ViewGroup\r\nimport android.widget.*\r\nimport androidx.annotation.AttrRes\r\nimport androidx.annotation.ColorInt\r\nimport androidx.core.view.setPadding\r\nimport androidx.fragment.app.FragmentActivity\r\nimport com.assynu.shoppinglist.R\r\nimport com.google.firebase.firestore.ktx.firestore\r\nimport com.google.firebase.ktx.Firebase\r\n\r\n\r\n@SuppressLint(\"StaticFieldLeak\")\r\ninternal object Manager {\r\n    private val db = Firebase.firestore\r\n\r\n    fun addProduct(Name: String, ListID: String) {\r\n        val product = hashMapOf(\r\n            \"Purchased\" to false,\r\n            \"Name\" to Name,\r\n        )\r\n        db.collection(\"Lists\").document(ListID).collection(\"List\")\r\n            .add(product)\r\n    }\r\n\r\n    private fun removeProduct(document: String, ListID: String) {\r\n        db.collection(\"Lists\").document(ListID).collection(\"List\").document(document)\r\n            .delete()\r\n    }\r\n\r\n    @SuppressLint(\"SetTextI18n\")\r\n    fun getProducts(\r\n        activity: FragmentActivity?,\r\n        products_list: LinearLayout,\r\n        ListID: String,\r\n        context: Context\r\n    ) {\r\n\r\n        db.collection(\"Lists\").document(ListID).collection(\"List\")\r\n            .get()\r\n            .addOnSuccessListener { result ->\r\n                products_list.removeAllViews()\r\n                for (document in result) {\r\n                    val data = document.data.toList().toTypedArray()\r\n                    val product =\r\n                        Product(\r\n                            document.id,\r\n                            data[0].second as Boolean,\r\n                            data[1].second as String\r\n                        )\r\n\r\n                    addProductToView(activity, product, ListID, products_list, context)\r\n                }\r\n            }\r\n    }\r\n\r\n    @SuppressLint(\"SetTextI18n\")\r\n    fun addProductToView(\r\n        activity: FragmentActivity?,\r\n        product: Product,\r\n        ListID: String,\r\n        products_list: LinearLayout,\r\n        context: Context\r\n    ) {\r\n        fun Int.dpToPixelsInt(context: Context): Int = TypedValue.applyDimension(\r\n            TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), context.resources.displayMetrics\r\n        ).toInt()\r\n\r\n        fun TextView.showStrikeThrough(show: Boolean) {\r\n            paintFlags =\r\n                if (show) paintFlags or Paint.STRIKE_THRU_TEXT_FLAG\r\n                else paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()\r\n        }\r\n\r\n        @ColorInt\r\n        fun Context.getColorFromAttr(\r\n            @AttrRes attrColor: Int,\r\n            typedValue: TypedValue = TypedValue(),\r\n            resolveRefs: Boolean = true\r\n        ): Int {\r\n            theme.resolveAttribute(attrColor, typedValue, resolveRefs)\r\n            return typedValue.data\r\n        }\r\n\r\n        val productView = LinearLayout(activity)\r\n        val productCheckBox = CheckBox(activity)\r\n        val productRemove = ImageButton(activity)\r\n\r\n        val paddingVal = 12.dpToPixelsInt(context)\r\n\r\n        productView.setPadding(paddingVal)\r\n\r\n\r\n        productCheckBox.textSize = 18f\r\n        productCheckBox.text = product.Name\r\n        productCheckBox.isChecked = product.Purchased\r\n        if (productCheckBox.isChecked) {\r\n            productCheckBox.showStrikeThrough(true)\r\n            productCheckBox.setTextColor(context.getColorFromAttr(R.attr.colorHint))\r\n        }\r\n        productCheckBox.layoutParams = RelativeLayout.LayoutParams(\r\n            320.dpToPixelsInt(context),\r\n            ViewGroup.LayoutParams.WRAP_CONTENT\r\n        )\r\n        productCheckBox.setOnClickListener()\r\n        {\r\n            completeProduct(product, ListID)\r\n            if (productCheckBox.isChecked) {\r\n                productCheckBox.setTextColor(context.getColorFromAttr(R.attr.colorHint))\r\n                productCheckBox.showStrikeThrough(true)\r\n            } else {\r\n                productCheckBox.setTextColor(context.getColorFromAttr(R.attr.colorOnContainer))\r\n                productCheckBox.showStrikeThrough(false)\r\n            }\r\n        }\r\n\r\n\r\n        productRemove.setBackgroundResource(R.drawable.ic_baseline_delete_24)\r\n        productRemove.setOnClickListener()\r\n        {\r\n            removeProduct(product.ID, ListID)\r\n            products_list.removeView(productView)\r\n        }\r\n\r\n        productView.addView(productCheckBox)\r\n        productView.addView(productRemove)\r\n        products_list.addView(productView)\r\n    }\r\n\r\n    fun completeProduct(product: Product, ListID: String) {\r\n        product.Purchased = !product.Purchased\r\n        db.collection(\"Lists\").document(ListID).collection(\"List\").document(product.ID).set(product)\r\n    }\r\n//\r\n//    fun removeCompleted(ListID: String) {\r\n//        db.collection(\"Lists\").document(ListID).collection(\"List\")\r\n//            .get()\r\n//            .addOnSuccessListener { result ->\r\n//                for (document in result) {\r\n//                    val data = document.data.toList().toTypedArray()\r\n//                    val product =\r\n//                        Product(\r\n//                            document.id,\r\n//                            data[1].second as Boolean,\r\n//                            data[0].second as String\r\n//                        )\r\n//                    if (product.Purchased) {\r\n//                        removeProduct(document.id, ListID)\r\n//                    }\r\n//                }\r\n//            }\r\n//    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/assynu/shoppinglist/database/Manager.kt b/app/src/main/java/com/assynu/shoppinglist/database/Manager.kt
+--- a/app/src/main/java/com/assynu/shoppinglist/database/Manager.kt	(revision 24a043f6713a2ec683048c132c26851134212a70)
++++ b/app/src/main/java/com/assynu/shoppinglist/database/Manager.kt	(date 1642714008098)
+@@ -9,10 +9,13 @@
+ import android.content.Context
+ import android.graphics.Paint
+ import android.util.TypedValue
++import android.view.View
+ import android.view.ViewGroup
+ import android.widget.*
+ import androidx.annotation.AttrRes
+ import androidx.annotation.ColorInt
++import androidx.constraintlayout.widget.ConstraintLayout
++import androidx.constraintlayout.widget.ConstraintSet
+ import androidx.core.view.setPadding
+ import androidx.fragment.app.FragmentActivity
+ import com.assynu.shoppinglist.R
+@@ -92,10 +95,14 @@
+             return typedValue.data
+         }
+ 
+-        val productView = LinearLayout(activity)
++        val productView = ConstraintLayout(context)
+         val productCheckBox = CheckBox(activity)
+         val productRemove = ImageButton(activity)
+ 
++        productView.id = View.generateViewId()
++        productCheckBox.id = View.generateViewId()
++        productRemove.id = View.generateViewId()
++
+         val paddingVal = 12.dpToPixelsInt(context)
+ 
+         productView.setPadding(paddingVal)
+@@ -109,7 +116,7 @@
+             productCheckBox.setTextColor(context.getColorFromAttr(R.attr.colorHint))
+         }
+         productCheckBox.layoutParams = RelativeLayout.LayoutParams(
+-            320.dpToPixelsInt(context),
++            ViewGroup.LayoutParams.WRAP_CONTENT,
+             ViewGroup.LayoutParams.WRAP_CONTENT
+         )
+         productCheckBox.setOnClickListener()
+@@ -124,6 +131,7 @@
+             }
+         }
+ 
++        println(productRemove.width + productCheckBox.width)
+ 
+         productRemove.setBackgroundResource(R.drawable.ic_baseline_delete_24)
+         productRemove.setOnClickListener()
+@@ -134,6 +142,17 @@
+ 
+         productView.addView(productCheckBox)
+         productView.addView(productRemove)
++
++        val set = ConstraintSet()
++        set.clone(productView)
++        set.connect(
++            productRemove.id,
++            ConstraintSet.RIGHT,
++            ConstraintSet.PARENT_ID,
++            ConstraintSet.RIGHT
++        )
++        set.applyTo(productView)
++
+         products_list.addView(productView)
+     }
+ 
